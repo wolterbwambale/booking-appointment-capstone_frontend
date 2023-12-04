@@ -20,6 +20,12 @@
     "import/no-unresolved": "off",
     "no-shadow": "off"
   },
+  "overrides": [
+    {
+      "files": ["src/**/*Slice.js"],
+      "rules": { "no-param-reassign": ["error", { "props": false }] }
+    }
+  ],
   "ignorePatterns": [
     "dist/",
     "build/"
