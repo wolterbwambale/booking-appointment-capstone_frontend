@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   Feature,
   Footer,
@@ -8,22 +8,20 @@ import {
   Login,
   Addform,
   Reservation,
-} from "./components/index";
+} from './components/index';
 
-const App = () => {
-  return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/feature" element={<Feature />} />
-        <Route path="/addform" element={<Addform />} />
-        <Route path="/reservation" element={<Reservation />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-      <Footer />
-    </Router>
-  );
-};
+const App = () => (
+  <Router>
+    <Navbar />
+    <Routes>
+      <Route exact path="/" element={<Home />} />
+      <Route path="/feature" element={<Feature />} />
+      <Route path="/addform" element={<Addform />} />
+      <Route path="/reservation" element={<Reservation />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
+    <Footer />
+  </Router>
+);
 
 export default App;

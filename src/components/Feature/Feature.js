@@ -1,10 +1,8 @@
-import React from 'react'
+import React from 'react';
 import './Feature.css';
 
-const Feature = () => {
-  return (
-    <div className='feature-container'>Feature</div>
-  )
-}
+const Feature = () => (
+  <div className="feature-container">Feature</div>
+);
 
-export default Feature
+export default Feature;
