@@ -1,12 +1,12 @@
-import React from "react";
-import { useState } from 'react';
-import "./Feature.css";
-import dr1 from "../../assets/dr1.jpg";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from 'react';
 
-const Feature = () => {
+import './Feature.css';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import dr1 from '../../assets/dr1.jpg';
+
+function Feature() {
   const [isReserved, setIsReserved] = useState(false);
 
   const handleClick = () => {
@@ -21,12 +21,12 @@ const Feature = () => {
               src={dr1}
               alt="image1"
               className="img-fluid"
-              style={{ width: "100%" }}
+              style={{ width: '100%' }}
             />
           </div>
           <div className="col-md-2 d-flex flex-column">
             <div className="align-self-start">
-            <span className="p-4 fs-4" id='left'>LOGO</span>
+              <span className="p-4 fs-4" id="left">LOGO</span>
               <h6 className="bg-white p-2">Hello World</h6>
               <p className="bg-light p-2">p.o.box 232 kampale</p>
               <p className="bg-white p-2">tel:07777777777777</p>
@@ -43,7 +43,7 @@ const Feature = () => {
                 onClick={handleClick}
               >
                 <FontAwesomeIcon icon={faCalendarAlt} className="me-2" />
-                {isReserved ? "Reserved" : "Reserve"}
+                {isReserved ? 'Reserved' : 'Reserve'}
               </Link>
             </div>
           </div>
@@ -51,6 +51,6 @@ const Feature = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Feature;
