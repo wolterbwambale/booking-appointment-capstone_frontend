@@ -1,4 +1,26 @@
-.feature-container {
-  margin-left: 200px;
+#feature-container {
+  margin-left: 80px;
   padding: 20px;
+}
+
+#second_col{
+    margin-left: 100px;
+}
+
+.link-btn{
+    padding: 8px 16px;
+    font-size: 20px;
+    color: white;
+    background-color:  #86b523;
+    text-decoration: none;
+    border-radius: 12px;
+    width: max-content;
+}
+
+#left{
+    color:  #86b523; 
+    transition: transform 0.3s ease-in-out;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
 }
