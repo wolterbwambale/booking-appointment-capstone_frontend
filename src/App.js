@@ -8,6 +8,7 @@ import {
   Login,
   Addform,
   Reservation,
+  DoctorInfo,
 } from './components/index';
 
 const App = () => (
@@ -19,6 +20,7 @@ const App = () => (
       <Route path="/addform" element={<Addform />} />
       <Route path="/reservation" element={<Reservation />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/doctor_info" element={<DoctorInfo />} />
     </Routes>
     <Footer />
   </Router>

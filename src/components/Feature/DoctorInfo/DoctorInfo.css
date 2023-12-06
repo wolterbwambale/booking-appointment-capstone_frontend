@@ -1,0 +1,44 @@
+.main {
+  margin: 0 10rem 0 10rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.doc-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+  margin: 0 0 7rem 0;
+}
+
+.doc-info > * {
+  padding: 1rem;
+}
+
+.doc-img {
+  height: 35rem;
+}
+
+.details {
+  height: 70%;
+}
+
+.details > * {
+  padding-bottom: 2rem;
+}
+
+.make-booking {
+  color: black;
+  margin: 0.2rem;
+  margin-top: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: none;
+  text-align: center;
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+}

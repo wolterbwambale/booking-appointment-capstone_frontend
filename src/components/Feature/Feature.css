@@ -1,4 +1,51 @@
-.feature-container{
-    margin-left: 200px; 
-    padding: 20px; 
+.main-div {
+  display: flex;
+  justify-content: center;
+  margin: 4rem;
+}
+
+.doctors-component-div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-weight: 600;
+  text-align: center;
+  margin: 2rem;
+}
+
+.doctor-info {
+  padding: 1rem;
+}
+
+.doctor-info > img {
+  width: 22rem;
+  height: auto;
+  padding: 1rem;
+}
+
+.name {
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.4rem;
+  padding: 0.2rem;
+}
+
+.exp,
+.speci {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #757575;
+  padding: 0.2rem;
+}
+
+.read-more {
+  color: black;
+  margin: 0.2rem;
+  margin-top: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: none;
+  text-align: center;
 }
