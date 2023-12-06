@@ -13,8 +13,7 @@ export const fetchDoctorById = createAsyncThunk(
   async (doctorId) => {
     try {
       const response = await axios.get(`http://127.0.0.1:4000/api/v1/doctors/${doctorId}`);
-      console.log('Fetched doctor data:', response);
-      return response.data; // Assuming the response contains the doctor details
+      return response.data; 
     } catch (error) {
       throw new Error('Failed to fetch doctor');
     }
