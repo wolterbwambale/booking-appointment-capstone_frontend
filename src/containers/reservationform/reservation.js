@@ -1,8 +1,8 @@
 import React from 'react';
 import './Reservation.css';
 
-const Reservation = () => (
-  <div>reservation</div>
-);
+function Reservation() {
+  return <div>reservation</div>;
+}
 
 export default Reservation;

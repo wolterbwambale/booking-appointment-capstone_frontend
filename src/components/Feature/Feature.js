@@ -1,17 +1,36 @@
-import React, { useState } from 'react';
-
-import './Feature.css';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { fetchDoctorById, selectDoctor } from '../../featureSlice/featureSlice';
+import './Feature.css';
 import dr1 from '../../assets/dr1.jpg';
 
-function Feature() {
-  const [isReserved, setIsReserved] = useState(false);
-
+function Feature({ doctorId }) {
   const handleClick = () => {
-    setIsReserved(!isReserved);
+    window.location.href = '/reservation';
   };
+  const dispatch = useDispatch();
+  const doctor = useSelector(selectDoctor);
+
+  useEffect(() => {
+    dispatch(fetchDoctorById(doctorId));
+  }, [dispatch, doctorId]);
+
+  if (!doctor) {
+    return <div id="feature-container">Loading...</div>;
+  }
+
+  if (doctor.error) {
+    return (
+      <div>
+        Error:
+        {doctor.error}
+      </div>
+    );
+  }
+
   return (
     <section className="section" id="feature-container">
       <div className="container">
@@ -26,25 +45,35 @@ function Feature() {
           </div>
           <div className="col-md-2 d-flex flex-column">
             <div className="align-self-start">
-              <span className="p-4 fs-4" id="left">LOGO</span>
-              <h6 className="bg-white p-2">Hello World</h6>
-              <p className="bg-light p-2">p.o.box 232 kampale</p>
-              <p className="bg-white p-2">tel:07777777777777</p>
-            </div>
-            <div className="align-self-start">
-              <h6 className="bg-white p-2">Hello World</h6>
-              <p className="bg-light p-2">p.o.box 232 kampale</p>
-              <p className="bg-white p-2">tel:07777777777777</p>
+              {doctor && (
+                <>
+                  <h6 className="bg-light p-2">
+                    Name:
+                    {doctor.name}
+                  </h6>
+                  <p className="bg-white p-2">
+                    Specialization:
+                    {' '}
+                    {doctor.specialization}
+                  </p>
+                  <p className="bg-light p-2">
+                    Years of Experience:
+                    {' '}
+                    {doctor.years_of_experience}
+                  </p>
+                  <p className="bg-white p-2">
+                    Cost for appointment:
+                    {' '}
+                    {doctor.price_per_appointment}
+                  </p>
+                </>
+              )}
             </div>
             <div className="text-white mt-5">
-              <Link
-                to="Reservation"
-                className="link-btn"
-                onClick={handleClick}
-              >
+              <button type="submit" className="link-btn" onClick={handleClick}>
                 <FontAwesomeIcon icon={faCalendarAlt} className="me-2" />
-                {isReserved ? 'Reserved' : 'Reserve'}
-              </Link>
+                Reserve
+              </button>
             </div>
           </div>
         </div>
@@ -52,5 +81,9 @@ function Feature() {
     </section>
   );
 }
+
+Feature.propTypes = {
+  doctorId: PropTypes.number.isRequired,
+};
 
 export default Feature;
