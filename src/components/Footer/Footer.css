@@ -19,7 +19,7 @@
 }
 
 @media only screen and (max-width: 375px) {
-  .footer>p {
+  .footer > p {
     font-size: 60%;
     padding: 0;
   }
