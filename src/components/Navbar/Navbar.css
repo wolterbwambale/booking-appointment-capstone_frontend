@@ -92,4 +92,14 @@ button:active {
     height: 2.5rem;
     margin: 1rem;
   }
+.main-div {
+  margin: 0;
+}
+
+.left {
+  border: none;
+  background-color: white;
+  box-shadow: none;
+}
+
 }

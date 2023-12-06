@@ -7,7 +7,10 @@
 .doctors-component-div {
   display: flex;
   flex-wrap: wrap;
-  height: 110vh;
+}
+
+.doctors-component-div:last-child {
+  margin-bottom: 4rem;
 }
 
 h1 {
@@ -43,11 +46,36 @@ h1 {
 }
 
 .read-more {
-  color: black;
+  color: white;
   margin: 0.2rem;
   margin-top: 1rem;
   background-color: white;
   border-radius: 8px;
   box-shadow: none;
   text-align: center;
+  background-color: #86b523;
+}
+
+@media only screen and (max-width: 375px) {
+  .doctor-info>img {
+    width: 70%;
+  }
+
+  .read-more,
+  .name,
+  .exp,
+  .speci {
+    font-size: 70%
+  }
+
+  .doctor-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .read-more {
+    width: 100%;
+  }
 }

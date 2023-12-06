@@ -32,14 +32,14 @@
 }
 
 .make-booking {
-  color: black;
+  color: white;
   margin: 0.2rem;
   margin-top: 1rem;
-  background-color: white;
   border-radius: 8px;
   box-shadow: none;
   text-align: center;
   width: auto;
   height: auto;
   padding: 0.5rem;
+  background-color: #86b523;
 }
