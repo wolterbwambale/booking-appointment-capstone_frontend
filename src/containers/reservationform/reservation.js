@@ -1,5 +1,5 @@
 import React from 'react';
-import './reservation.css';
+import './Reservation.css';
 
 const Reservation = () => (
   <div>reservation</div>

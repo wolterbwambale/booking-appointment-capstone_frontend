@@ -71,3 +71,9 @@ button:active {
   background-color: #86B523;
   color: #fff
 }
+
+@media screen and (max-width: 600px) {
+  .nav-container {
+    display: none;
+  }
+}
