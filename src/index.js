@@ -1,7 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
+import { createRoot } from 'react-dom/client';
 import App from './App';
 
-// eslint-disable-next-line react/no-deprecated
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = document.getElementById('root');
+const rootElement = createRoot(root);
+rootElement.render(<App />);

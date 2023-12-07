@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Footer from '../Footer/Footer';
 
-const Navbar = () => {
+function Navbar() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -109,6 +109,6 @@ const Navbar = () => {
   };
 
   return <LinksComponent />;
-};
+}
 
 export default Navbar;

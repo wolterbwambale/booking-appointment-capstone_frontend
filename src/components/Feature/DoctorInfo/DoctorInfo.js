@@ -1,20 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './DoctorInfo.css';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  fetchDoctorById,
+  selectDoctors,
+} from '../../../featureSlice/featureSlice';
 
-const doctorsData = [
-  {
-    id: 5,
-    name: 'Michael D. Valentine',
-    specialization: 'Orthopedics',
-    years_of_experience: 9,
-    price_per_appointment: 300,
-    img: 'https://images.pexels.com/photos/5327656/pexels-photo-5327656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  },
-];
+function DoctorInfo({ doctorId }) {
+  const dispatch = useDispatch();
+  const doctors = useSelector(selectDoctors);
 
-const DoctorInfo = () => {
-  const doctor = doctorsData[0];
+  useEffect(() => {
+    dispatch(fetchDoctorById(doctorId.id));
+  }, [dispatch, doctorId.id]);
 
+  const doctor = doctors.find((doc) => doc.id === doctorId.id);
+
+  if (doctors.length === 0) {
+    return <div id="feature-container">Loading...</div>;
+  }
+
+  if (!doctor) {
+    return <div id="feature-container">Doctor not found</div>;
+  }
+
+  if (doctors.error) {
+    return (
+      <div>
+        Error:
+        {doctors.error}
+      </div>
+    );
+  }
   return (
     <div className="main">
       <div className="doc-info">
@@ -57,6 +75,12 @@ const DoctorInfo = () => {
       </div>
     </div>
   );
+}
+
+DoctorInfo.propTypes = {
+  doctorId: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default DoctorInfo;
