@@ -1,22 +1,28 @@
 .home-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; 
-  background-image: url('../../assets/dr1.jpg'); 
+  height: 100vh;
+  background-image: url('../../assets/dr1.jpg');
   background-size: cover;
   background-position: center;
-  color: white; 
-  text-align: center;
   padding: 20px;
 }
 
 .home-container h1 {
-  font-size: 2em;
+  margin: 5rem 0 0 12rem;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #86b523;
+  text-shadow: 2px 2px 4px black;
 }
 
 .home-container p {
-  font-size: 1.2em;
-  margin-top: 10px;
+  font-size: 1.5em;
+  font-weight: 600;
+  width: 50%;
+  margin: 5rem 0 0 10rem;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  background-color: rgba(119, 136, 153, 0.265);
+  padding: 1rem;
 }
