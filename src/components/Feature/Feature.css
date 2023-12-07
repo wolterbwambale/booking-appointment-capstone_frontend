@@ -49,7 +49,7 @@ h1 {
   padding: 1rem;
 }
 
-.doctor-info>img {
+.doctor-info > img {
   width: 22rem;
   height: auto;
   border-radius: 8px;
@@ -82,7 +82,7 @@ h1 {
 }
 
 @media only screen and (max-width: 375px) {
-  .doctor-info>img {
+  .doctor-info > img {
     width: 70%;
   }
 
