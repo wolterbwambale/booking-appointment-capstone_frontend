@@ -10,18 +10,20 @@ import {
   Reservation,
 } from './components/index';
 
-const App = () => (
-  <Router>
-    <Navbar />
-    <Routes>
-      <Route exact path="/" element={<Home />} />
-      <Route path="/feature" element={<Feature />} />
-      <Route path="/addform" element={<Addform />} />
-      <Route path="/reservation" element={<Reservation />} />
-      <Route path="/login" element={<Login />} />
-    </Routes>
-    <Footer />
-  </Router>
-);
+function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/feature" element={<Feature />} />
+        <Route path="/addform" element={<Addform />} />
+        <Route path="/reservation" element={<Reservation />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
+}
 
 export default App;
