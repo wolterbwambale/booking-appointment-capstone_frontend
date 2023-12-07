@@ -4,7 +4,7 @@ import Home from './home/Home';
 import Navbar from './Navbar/Navbar';
 import Login from './Login/Login';
 import Addform from '../containers/addform/Addform';
-import Reservation from '../containers/reservationform/reservation';
+import Reservation from '../containers/reservationform/reservationForm';
 
 export {
   Feature, Footer, Home, Navbar, Login, Addform, Reservation,
