@@ -13,7 +13,7 @@ import {
 } from './components/index';
 
 function App() {
-  const doctorId = 2;
+  const doctorId = 1;
   return (
     <Provider store={store}>
       <Router>
