@@ -2,20 +2,22 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './DoctorInfo.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import {
   fetchDoctorById,
   selectDoctors,
 } from '../../../featureSlice/featureSlice';
 
-function DoctorInfo({ doctorId }) {
+function DoctorInfo() {
+  const { id } = useParams();
   const dispatch = useDispatch();
   const doctors = useSelector(selectDoctors);
 
   useEffect(() => {
-    dispatch(fetchDoctorById(doctorId.id));
-  }, [dispatch, doctorId.id]);
+    dispatch(fetchDoctorById(id));
+  }, [dispatch, id]);
 
-  const doctor = doctors.find((doc) => doc.id === doctorId.id);
+  const doctor = doctors.find((doc) => doc.id === parseInt(id, 10));
 
   if (doctors.length === 0) {
     return <div id="feature-container">Loading...</div>;
