@@ -1,6 +1,7 @@
 // src/containers/ReservationList/ReservationList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 function ReservationList({ isAdmin }) {
   const [reservations, setReservations] = useState([]);
@@ -32,5 +33,10 @@ function ReservationList({ isAdmin }) {
     </div>
   );
 }
+
+// Add PropTypes to specify the expected type for isAdmin
+ReservationList.propTypes = {
+  isAdmin: PropTypes.bool.isRequired,
+};
 
 export default ReservationList;

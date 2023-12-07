@@ -9,7 +9,8 @@ import {
   Navbar,
   Login,
   Addform,
-  Reservation,
+  ReservationList,
+  ReservationForm,
 } from './components/index';
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/feature" element={<Feature doctorId={doctorId} />} />
           <Route path="/addform" element={<Addform />} />
-          <Route path="/reservation" element={<Reservation />} />
+          <Route path="/reservation" element={<ReservationList />} />
+          <Route path="/reservation/form" element={<ReservationForm />} />
           <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
