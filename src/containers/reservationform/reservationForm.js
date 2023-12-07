@@ -33,6 +33,7 @@ function ReservationForm() {
       <h2>Reservation Form</h2>
       <form onSubmit={handleSubmit}>
         {/* Wrapping input in label */}
+        {/* eslint jsx-a11y/label-has-associated-control: ["error", { assert: "either" } ] */}
         <label>
           Date:
           <input
