@@ -3,79 +3,62 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
-import { fetchDoctorById, selectDoctor } from '../../featureSlice/featureSlice';
+import { Link } from 'react-router-dom';
+import {
+  fetchDoctorById,
+  selectDoctors,
+} from '../../featureSlice/featureSlice';
 import './Feature.css';
-import dr1 from '../../assets/dr1.jpg';
 
 function Feature({ doctorId }) {
   const handleClick = () => {
-    window.location.href = '/reservation';
+    window.location.href = '/doctor_info';
   };
   const dispatch = useDispatch();
-  const doctor = useSelector(selectDoctor);
+  const doctors = useSelector(selectDoctors);
 
   useEffect(() => {
     dispatch(fetchDoctorById(doctorId));
   }, [dispatch, doctorId]);
 
-  if (!doctor) {
+  if (!doctors.length) {
     return <div id="feature-container">Loading...</div>;
   }
 
-  if (doctor.error) {
+  if (doctors.error) {
     return (
       <div>
         Error:
-        {doctor.error}
+        {doctors.error}
       </div>
     );
   }
 
   return (
     <section className="section" id="feature-container">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-10">
-            <img
-              src={dr1}
-              alt="image1"
-              className="img-fluid"
-              style={{ width: '100%' }}
-            />
-          </div>
-          <div className="col-md-2 d-flex flex-column">
-            <div className="align-self-start">
-              {doctor && (
-                <>
-                  <h6 className="bg-light p-2">
-                    Name:
-                    {doctor.name}
-                  </h6>
-                  <p className="bg-white p-2">
-                    Specialization:
-                    {' '}
-                    {doctor.specialization}
-                  </p>
-                  <p className="bg-light p-2">
-                    Years of Experience:
-                    {' '}
-                    {doctor.years_of_experience}
-                  </p>
-                  <p className="bg-white p-2">
-                    Cost for appointment:
-                    {' '}
-                    {doctor.price_per_appointment}
-                  </p>
-                </>
-              )}
+      <h1>Our Doctors</h1>
+      <div className="main-div">
+        <div className="doctors-component-div">
+          {doctors.map((doctor) => (
+            <div key={doctor.id} className="individual-doc">
+              <div className="doctor-info">
+                <img src={doctor.img} alt={`Dr. ${doctor.name}`} />
+                <div className="name">{doctor.name}</div>
+                <div className="speci">{doctor.specialization}</div>
+                <div className="exp">{`Experience: ${doctor.years_of_experience}`}</div>
+                <Link to="/doctor_info">
+                  <button
+                    type="button"
+                    className="link-btn"
+                    onClick={handleClick}
+                  >
+                    <FontAwesomeIcon icon={faCalendarAlt} className="me-2" />
+                    Read More
+                  </button>
+                </Link>
+              </div>
             </div>
-            <div className="text-white mt-5">
-              <button type="submit" className="link-btn" onClick={handleClick}>
-                <FontAwesomeIcon icon={faCalendarAlt} className="me-2" />
-                Reserve
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -83,7 +66,7 @@ function Feature({ doctorId }) {
 }
 
 Feature.propTypes = {
-  doctorId: PropTypes.number.isRequired,
+  doctorId: PropTypes.string.isRequired,
 };
 
 export default Feature;

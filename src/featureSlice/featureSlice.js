@@ -3,21 +3,19 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  doctor: null,
+  doctors: [],
   isLoading: false,
   error: null,
 };
 
 export const fetchDoctorById = createAsyncThunk(
   'doctors/fetchDoctorById',
-  async (doctorId) => {
+  async () => {
     try {
-      const response = await axios.get(
-        `http://127.0.0.1:4000/api/v1/doctors/${doctorId}`,
-      );
+      const response = await axios.get('http://127.0.0.1:4000/api/v1/doctors/');
       return response.data;
     } catch (error) {
-      throw new Error('Failed to fetch doctor');
+      throw new Error('Failed to fetch doctors');
     }
   },
 );
@@ -34,7 +32,7 @@ const doctorsSlice = createSlice({
       })
       .addCase(fetchDoctorById.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.doctor = action.payload;
+        state.doctors = action.payload;
       })
       .addCase(fetchDoctorById.rejected, (state, action) => {
         state.isLoading = false;
@@ -43,6 +41,6 @@ const doctorsSlice = createSlice({
   },
 });
 
-export const selectDoctor = (state) => state.doctors.doctor;
+export const selectDoctors = (state) => state.doctors.doctors;
 
 export default doctorsSlice.reducer;
