@@ -59,14 +59,36 @@ function Navbar() {
                     <Link to="/">Home</Link>
                   </li>
                   <li>
-                    <Link to="/feature">Feature</Link>
+                    <Link to="/feature">Doctors</Link>
                   </li>
                   <li>
                     <Link to="/Addform">AddItem</Link>
                   </li>
                   <li>
-                    <Link to="/Reservation">Reservation</Link>
+                    <Link to="/Reservation">Appointments</Link>
                   </li>
+                  {user ? (
+                    // If authenticated
+                    <li>
+                      <button type="button" onClick={handleLogout}>
+                        Logout
+                      </button>
+                    </li>
+                  ) : (
+                    // If not authenticated
+                    <>
+                      <li>
+                        <Link to="/login">
+                          <button type="button">Login</button>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/signup">
+                          <button type="button">Signup</button>
+                        </Link>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
             )}
@@ -77,7 +99,10 @@ function Navbar() {
         <div className="vertical-line">
           <div className="nav-container">
             <div className="logo">
-              <span className="logo-text">Health Center</span>
+              <span className="logo-text">
+                Health
+                <span>Clinic</span>
+              </span>
             </div>
 
             <div>

@@ -12,11 +12,16 @@
   justify-content: center;
   align-items: center;
   height: 85%;
-  margin: 0 0 8rem 4rem;
+  margin: 0 0 12rem 4rem;
+}
+
+.star {
+  width: 1rem;
+  height: auto;
 }
 
 .doc-info > * {
-  padding: 1rem;
+  padding-left: 1rem;
 }
 
 .doc-img {
@@ -46,7 +51,7 @@
 }
 
 .doc-descrip {
-  width: 70%;
+  width: 90%;
 }
 
 @media only screen and (max-width: 375px) {
@@ -63,6 +68,10 @@
     box-sizing: border-box;
     margin: 0;
     margin-top: 10rem;
+  }
+
+  .name {
+    padding-top: 2rem;
   }
 
   .doc-descrip {

@@ -1,7 +1,7 @@
 .main-div {
   display: flex;
   justify-content: center;
-  margin-left: 5rem;
+  margin-left: 12rem;
 }
 
 .doctors-component-div {
@@ -56,6 +56,10 @@ h1 {
 }
 
 @media only screen and (max-width: 375px) {
+  .main-div {
+    margin: 0;
+  }
+
   .doctor-info > img {
     width: 70%;
   }
