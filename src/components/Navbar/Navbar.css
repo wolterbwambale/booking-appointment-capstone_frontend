@@ -9,6 +9,7 @@
   flex-direction: column;
   margin-left: -10px;
   border-right: #ccc 1px solid;
+  padding: 2em;
 }
 
 .left {
@@ -36,6 +37,10 @@
   list-style: none;
   padding: 0;
   text-decoration: none;
+}
+
+.nav-container li {
+  margin-bottom: 1em;
 }
 
 .navbar ul li {
@@ -71,10 +76,6 @@ button:active {
   color: #fff;
 }
 
-.nav-container {
-  padding: 2em; /* Padding around the navbar content */
-}
-
 .logo {
   margin-bottom: 1em; /* Space below the logo */
 }
@@ -89,10 +90,6 @@ button:active {
   list-style-type: none;
   padding: 0;
   margin: 0;
-}
-
-.nav-container li {
-  margin-bottom: 1em; /* Add more space between menu items */
 }
 
 .nav-container li a {
@@ -126,9 +123,4 @@ button:active {
 footer {
   padding: 1em; /* Add padding to the footer */
   text-align: center; /* Center footer content */
-}
-
-/* Additional styles if you have icons or other elements in the navbar */
-.icon {
-  /* Style for any icons you include in the navbar */
 }

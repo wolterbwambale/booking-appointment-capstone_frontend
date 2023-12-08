@@ -1,14 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from 'react-router-dom';
-import store from "./store";
-import store from './app/store';
+import store from './store';
+// import store from './app/store';
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Feature from './components/Feature/Feature';
