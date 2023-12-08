@@ -2,7 +2,7 @@ import React from 'react';
 import './Feature.css';
 
 const Feature = () => (
-  <div className="feature-container">Feature</div>
+  <h1 className="feature-container">Feature</h1>
 );
 
 export default Feature;
