@@ -49,7 +49,7 @@ function DoctorInfo() {
           <div className="name">{doctor.name}</div>
           <div className="speci">{doctor.specialization}</div>
           <div className="exp">{`Experience: ${doctor.years_of_experience} years`}</div>
-          <p>{doctor.description}</p>
+          <p className="doc-descrip">{doctor.description}</p>
 
           <div className="price">{`Price per appointment: $${doctor.price_per_appointment}`}</div>
           <button type="button" className="make-booking">

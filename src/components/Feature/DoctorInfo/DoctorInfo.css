@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   height: 85%;
-  margin: 0 0 7rem 0;
+  margin: 0 0 8rem 4rem;
 }
 
 .doc-info > * {
@@ -42,4 +42,43 @@
   height: auto;
   padding: 0.5rem;
   background-color: #86b523;
+}
+
+.doc-descrip {
+  width: 70%;
+}
+
+@media only screen and (max-width: 375px) {
+  .main {
+    margin: 0;
+  }
+
+  .doc-info {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    margin-top: 10rem;
+  }
+
+  .doc-descrip {
+    margin: 0;
+    width: 100%;
+  }
+
+  .make-booking {
+    margin-bottom: 7rem;
+  }
+
+  .picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .picture > img {
+    height: 32rem;
+  }
 }
