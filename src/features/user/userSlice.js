@@ -1,15 +1,22 @@
 /* eslint-disable no-param-reassign */
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit';
 
 const initialState = {
   user: null,
   status: 'idle', // 'idle', 'loading', 'failed'
   error: null,
+  token: null,
 };
+
+export const setToken = createAction('user/setToken', (token) => ({
+  payload: {
+    token,
+  },
+}));
 
 export const login = createAsyncThunk(
   'user/login',
-  async (userData, { rejectWithValue }) => {
+  async (userData, { rejectWithValue, dispatch }) => {
     try {
       const response = await fetch('http://127.0.0.1:4000/login', {
         method: 'POST',
@@ -21,8 +28,15 @@ export const login = createAsyncThunk(
 
       const data = await response.json();
       if (response.ok) {
+        // Assuming the server responds with a token in the 'token' property of the response
+        const { token } = data;
+
+        // Store the token in the Redux state
+        dispatch(setToken(token));
+
         return data;
       }
+
       // Here we're assuming that the server responds with the error messages in 'data.errors'
       return rejectWithValue(data.message || 'An unknown error occurred');
     } catch (error) {
@@ -93,7 +107,12 @@ const userSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.status = 'idle';
         state.user = action.payload;
+      });
+    builder
+      .addCase(setToken, (state, action) => {
+        state.token = action.payload.token;
       })
+
       .addCase(login.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
