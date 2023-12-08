@@ -25,46 +25,52 @@ function ReservationForm() {
     e.preventDefault();
     await axios.post('http://127.0.0.1:4000/api/v1/reservations', formData);
   };
+
   return (
     <div className="reservation-form">
-      <h2>Reservation Form</h2>
+      <h2 className="form-title">Reservation Form</h2>
       <form onSubmit={handleSubmit} className="form-bit">
-        {/* Wrapping input in label */}
-        {/* eslint jsx-a11y/label-has-associated-control: ["error", { assert: "either" } ] */}
-        <label>
-          Date:
+        <div className="form-group">
+          {/* Wrapping input in label */}
+          {/* eslint jsx-a11y/label-has-associated-control: ["error", { assert: "either" } ] */}
+          <label htmlFor="date">Date:</label>
           <input
             type="date"
+            id="date"
             name="date"
             value={formData.date}
             onChange={handleInputChange}
             required
           />
-        </label>
+        </div>
 
-        <label>
-          Time:
+        <div className="form-group">
+          <label htmlFor="time">Time:</label>
           <input
             type="time"
+            id="time"
             name="time"
             value={formData.time}
             onChange={handleInputChange}
             required
           />
-        </label>
+        </div>
 
-        <label>
-          Description:
+        <div className="form-group">
+          <label htmlFor="description">Description:</label>
           <input
             type="text"
+            id="description"
             name="description"
             value={formData.description}
             onChange={handleInputChange}
             required
           />
-        </label>
+        </div>
 
-        <button type="submit">Submit Reservation</button>
+        <button type="submit" className="submit-button">
+          Submit Reservation
+        </button>
       </form>
     </div>
   );
