@@ -12,7 +12,7 @@ import Navbar from './components/Navbar/Navbar';
 import Feature from './components/Feature/Feature';
 import LoginForm from './components/Login/LoginForm';
 import SignupForm from './components/Signup/Signup';
-import Reservation from './components/Reservation/Reservation';
+import Reservation from './components/Reservation/ReservationList';
 import ProtectedRoute from './components/ProtectedRoute';
 import Footer from './components/Footer/Footer';
 import DoctorInfo from './components/Feature/DoctorInfo/DoctorInfo';

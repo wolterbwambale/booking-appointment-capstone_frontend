@@ -6,7 +6,7 @@ import { useParams } from 'react-router';
 import {
   fetchDoctorById,
   selectDoctors,
-} from '../../../featureSlice/featureSlice';
+} from '../../../features/featureSlice/featureSlice';
 
 function DoctorInfo() {
   const { id } = useParams();

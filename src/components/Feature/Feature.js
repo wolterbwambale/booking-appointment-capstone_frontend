@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import {
   fetchDoctorById,
   selectDoctors,
-} from '../../featureSlice/featureSlice';
+} from '../../features/featureSlice/featureSlice';
 import './Feature.css';
 
 function Feature({ doctorId }) {
@@ -15,7 +15,7 @@ function Feature({ doctorId }) {
   const doctors = useSelector(selectDoctors);
 
   useEffect(() => {
-    dispatch(fetchDoctorById(doctorId));
+    dispatch(fetchDoctorById(doctorId.toString()));
   }, [dispatch, doctorId]);
 
   if (!doctors.length) {
