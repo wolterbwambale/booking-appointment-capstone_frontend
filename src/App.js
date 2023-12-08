@@ -24,9 +24,7 @@ function App() {
     <Provider store={store}>
       <Router>
         <div className="main-layout">
-          <div className="vertical-line">
-            <Navbar />
-          </div>
+          <Navbar />
           <div className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />

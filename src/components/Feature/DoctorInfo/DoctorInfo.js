@@ -46,7 +46,36 @@ function DoctorInfo() {
           />
         </div>
         <div className="details">
-          <div className="name">{doctor.name}</div>
+          <div className="name">
+            {doctor.name}
+            {' '}
+            <br />
+            <img
+              className="star"
+              src="https://img.icons8.com/fluency/48/star--v1.png"
+              alt="star--v1"
+            />
+            <img
+              className="star"
+              src="https://img.icons8.com/fluency/48/star--v1.png"
+              alt="star--v1"
+            />
+            <img
+              className="star"
+              src="https://img.icons8.com/fluency/48/star--v1.png"
+              alt="star--v1"
+            />
+            <img
+              className="star"
+              src="https://img.icons8.com/fluency/48/star--v1.png"
+              alt="star--v1"
+            />
+            <img
+              className="star"
+              src="https://img.icons8.com/fluency/48/star--v1.png"
+              alt="star--v1"
+            />
+          </div>
           <div className="speci">{doctor.specialization}</div>
           <div className="exp">{`Experience: ${doctor.years_of_experience} years`}</div>
           <p className="doc-descrip">{doctor.description}</p>
