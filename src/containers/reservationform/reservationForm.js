@@ -24,6 +24,14 @@ function ReservationForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios.post('http://127.0.0.1:4000/api/v1/reservations', formData);
+    // Reset the form data to clear the fields
+    setFormData({
+      user_id: 4,
+      doctor_id: 3,
+      date: '',
+      time: '',
+      description: '',
+    });
   };
 
   return (
