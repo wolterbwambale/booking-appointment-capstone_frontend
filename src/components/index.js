@@ -1,6 +1,6 @@
 import Feature from './Feature/Feature';
 import Footer from './Footer/Footer';
-import Home from './home/Home';
+import Home from './Home/Home';
 import Navbar from './Navbar/Navbar';
 import Login from './Login/Login';
 import Addform from '../containers/addform/Addform';

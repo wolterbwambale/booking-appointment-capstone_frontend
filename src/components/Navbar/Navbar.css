@@ -9,6 +9,7 @@
   flex-direction: column;
   margin-left: -10px;
   border-right: #ccc 1px solid;
+  padding: 2em;
 }
 
 .left {
@@ -36,6 +37,10 @@
   list-style: none;
   padding: 0;
   text-decoration: none;
+}
+
+.nav-container li {
+  margin-bottom: 1em;
 }
 
 .navbar ul li {
@@ -134,4 +139,53 @@ button:active {
     list-style: none;
     font-size: 1.8rem;
   }
+}
+
+.logo {
+  margin-bottom: 1em; /* Space below the logo */
+}
+
+.logo-text {
+  font-family: 'Helvetica', 'Arial', sans-serif; /* Example font */
+  font-size: 21px; /* Larger font size for logo */
+  color: #000; /* Logo text color */
+}
+
+.nav-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-container li a {
+  text-decoration: none;
+}
+
+.nav-container button {
+  width: 100%;
+  background-color: transparent; /* No background color */
+  color: #000; /* Text color */
+  padding: 0.5em 1em;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1em; /* Adjust font size as needed */
+  transition: all 0.3s ease;
+}
+
+.nav-container button:hover {
+  background-color: #97bf11;
+  transition: 0.3s;
+}
+
+/* Since you're using a button inside a Link, you might need to override link styles */
+.nav-container button:link,
+.nav-container button:visited {
+  color: #000; /* Text color */
+}
+
+/* Footer styles */
+footer {
+  padding: 1em; /* Add padding to the footer */
+  text-align: center; /* Center footer content */
 }

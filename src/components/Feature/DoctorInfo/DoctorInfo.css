@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .doc-info {
@@ -51,6 +52,7 @@
 @media only screen and (max-width: 375px) {
   .main {
     margin: 0;
+    box-sizing: border-box;
   }
 
   .doc-info {

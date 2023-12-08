@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../features/user/userSlice';
 import './Navbar.css';
 import Footer from '../Footer/Footer';
 
 function Navbar() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user.user);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/'); // Redirect to the home page after logout
+  };
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -62,41 +73,82 @@ function Navbar() {
           </div>
         );
       }
-
       return (
         <div className="vertical-line">
           <div className="nav-container">
-            <span className="left">Logo</span>
+            <div className="logo">
+              <span className="logo-text">Health Center</span>
+            </div>
+
             <div>
               <ul>
-                <li>
-                  <Link to="/">
-                    <button type="button" className="btn btn-success">
-                      Home
-                    </button>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/feature">
-                    <button type="button" className="btn btn-success">
-                      Feature
-                    </button>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/Addform">
-                    <button type="button" className="btn btn-success">
-                      AddItem
-                    </button>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/Reservation">
-                    <button type="button" className="btn btn-role btn-success">
-                      Reservation
-                    </button>
-                  </Link>
-                </li>
+                {user ? (
+                  // If authenticated
+                  <>
+                    <li>
+                      <Link to="/">
+                        <button type="button" className="btn btn-success">
+                          Home
+                        </button>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/feature">
+                        <button type="button" className="btn btn-success">
+                          Doctors
+                        </button>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/reservation">
+                        <button type="button" className="btn btn-success">
+                          Appointments
+                        </button>
+                      </Link>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        className="btn btn-success"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </>
+                ) : (
+                  // If not authenticated
+                  <>
+                    <li>
+                      <Link to="/">
+                        <button type="button" className="btn btn-success">
+                          Home
+                        </button>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/feature">
+                        <button type="button" className="btn btn-success">
+                          Doctors
+                        </button>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/login">
+                        <button type="button" className="btn btn-success">
+                          Login
+                        </button>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/signup">
+                        <button type="button" className="btn btn-success">
+                          Signup
+                        </button>
+                      </Link>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </div>

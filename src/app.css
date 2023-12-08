@@ -1,0 +1,31 @@
+/* Main Layout */
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Vertical Navbar */
+.vertical-line {
+  width: 250px;
+  border-right: 1px solid #cac6c6;
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  padding: 20px; /* Add padding for spacing */
+}
+
+/* Component Container (Generic) */
+.component-container {
+  width: 100%; /* Take up full width of .main-content */
+  max-width: 800px; /* Maximum width of any component */
+  margin-bottom: 20px; /* Space between components */
+
+  /* Additional styling as needed */
+}
+
+/* Styles for specific components like form-container would be added separately */
