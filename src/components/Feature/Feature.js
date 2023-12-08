@@ -11,9 +11,6 @@ import {
 import './Feature.css';
 
 function Feature({ doctorId }) {
-  const handleClick = () => {
-    window.location.href = '/doctor_info';
-  };
   const dispatch = useDispatch();
   const doctors = useSelector(selectDoctors);
 
@@ -46,12 +43,8 @@ function Feature({ doctorId }) {
                 <div className="name">{doctor.name}</div>
                 <div className="speci">{doctor.specialization}</div>
                 <div className="exp">{`Experience: ${doctor.years_of_experience}`}</div>
-                <Link to="/doctor_info">
-                  <button
-                    type="button"
-                    className="link-btn"
-                    onClick={handleClick}
-                  >
+                <Link to={`/doctor_info/${doctor.id}`}>
+                  <button type="button" className="link-btn">
                     <FontAwesomeIcon icon={faCalendarAlt} className="me-2" />
                     Read More
                   </button>

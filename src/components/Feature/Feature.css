@@ -1,33 +1,7 @@
-#feature-container {
-  margin-left: 133px;
-  padding: 20px;
-}
-
-#second_col {
-  margin-left: 100px;
-}
-
-.link-btn {
-  padding: 8px 16px;
-  font-size: 20px;
-  color: white;
-  background-color: #86b523;
-  text-decoration: none;
-  border-radius: 12px;
-  width: max-content;
-}
-
-#left {
-  color: #86b523;
-  transition: transform 0.3s ease-in-out;
-  font-family: 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-}
-
 .main-div {
   display: flex;
   justify-content: center;
+  margin-left: 5rem;
 }
 
 .doctors-component-div {
@@ -79,6 +53,52 @@ h1 {
   box-shadow: none;
   text-align: center;
   background-color: #86b523;
+}
+
+@media only screen and (max-width: 375px) {
+  .doctor-info > img {
+    width: 70%;
+  }
+
+  .read-more,
+  .name,
+  .exp,
+  .speci {
+    font-size: 70%;
+  }
+
+  .doctor-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .read-more {
+    width: 100%;
+  }
+}
+
+#second_col {
+  margin-left: 100px;
+}
+
+.link-btn {
+  padding: 8px 16px;
+  font-size: 20px;
+  color: white;
+  background-color: #86b523;
+  text-decoration: none;
+  border-radius: 12px;
+  width: max-content;
+}
+
+#left {
+  color: #86b523;
+  transition: transform 0.3s ease-in-out;
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 375px) {

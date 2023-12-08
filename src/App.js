@@ -1,6 +1,5 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   BrowserRouter as Router,
   Routes,
@@ -8,7 +7,6 @@ import {
   Navigate,
 } from 'react-router-dom';
 import store from './store';
-// import store from './app/store';
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Feature from './components/Feature/Feature';
@@ -17,6 +15,7 @@ import SignupForm from './components/Signup/Signup';
 import Reservation from './components/Reservation/Reservation';
 import ProtectedRoute from './components/ProtectedRoute';
 import Footer from './components/Footer/Footer';
+import DoctorInfo from './components/Feature/DoctorInfo/DoctorInfo';
 import './app.css';
 
 function App() {
@@ -41,6 +40,7 @@ function App() {
                 <Route path="/reservation" element={<Reservation />} />
               </Route>
               <Route path="*" element={<Navigate to="/" />} />
+              <Route path="/doctor_info/:id" element={<DoctorInfo />} />
             </Routes>
           </div>
         </div>

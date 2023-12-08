@@ -76,6 +76,71 @@ button:active {
   color: #fff;
 }
 
+@media only screen and (max-width: 375px) {
+  .nav-container {
+    height: 65px;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .left {
+    width: 6rem;
+    border: none;
+    background-color: white;
+    box-shadow: none;
+  }
+
+  .burger {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .burger > img {
+    margin: 0;
+    margin-top: -1rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    position: fixed;
+  }
+
+  .main-div {
+    margin: 0;
+  }
+
+  .pop-up {
+    margin-top: 1rem;
+    background-color: #87b5235a;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+  }
+
+  .pop-up > ul > li > a {
+    text-decoration: none;
+    color: white;
+    text-shadow: 4px 4px 8px rgba(0.5, 0.5, 0.5, 0.5);
+  }
+
+  .pop-up > ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pop-up > ul > li {
+    margin: 1rem;
+    list-style: none;
+    font-size: 1.8rem;
+  }
+}
+
 .logo {
   margin-bottom: 1em; /* Space below the logo */
 }
