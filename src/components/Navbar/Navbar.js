@@ -5,7 +5,7 @@ import { logout } from '../../features/user/userSlice';
 import './Navbar.css';
 import Footer from '../Footer/Footer';
 
-const Navbar = () => {
+function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
@@ -90,6 +90,6 @@ const Navbar = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default Navbar;
