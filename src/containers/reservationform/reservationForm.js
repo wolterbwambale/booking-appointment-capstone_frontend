@@ -28,7 +28,7 @@ function ReservationForm() {
   return (
     <div className="reservation-form">
       <h2>Reservation Form</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-bit">
         {/* Wrapping input in label */}
         {/* eslint jsx-a11y/label-has-associated-control: ["error", { assert: "either" } ] */}
         <label>
@@ -48,6 +48,17 @@ function ReservationForm() {
             type="time"
             name="time"
             value={formData.time}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+
+        <label>
+          Description:
+          <input
+            type="text"
+            name="description"
+            value={formData.description}
             onChange={handleInputChange}
             required
           />

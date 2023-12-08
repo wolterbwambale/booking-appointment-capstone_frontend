@@ -1,5 +1,13 @@
 .reservation-form {
   margin-left: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-bit {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .reservation-form h2 {
