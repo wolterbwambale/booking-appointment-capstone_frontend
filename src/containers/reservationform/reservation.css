@@ -1,3 +1,8 @@
-* {
-  margin: 0;
+.reservation-form {
+  margin-left: 200px;
+}
+
+.reservation-form h2 {
+  color: red;
+  padding-left: 200px;
 }

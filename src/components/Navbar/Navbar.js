@@ -32,9 +32,16 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link to="/Reservation">
+              <Link to="/ReservationForm">
                 <button type="button" className="btn btn-role btn-success">
-                  Reservation
+                  Reservation Form
+                </button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/ReservationList">
+                <button type="button" className="btn btn-role btn-success">
+                  Reservation List
                 </button>
               </Link>
             </li>
