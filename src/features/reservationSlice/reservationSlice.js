@@ -1,11 +1,19 @@
 // src/features/reservationsSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import authorizedRequest from '../../api'; // Adjust the path
 
-export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async () => {
-  const response = await axios.get('http://127.0.0.1:4000/api/v1/reservations');
-  return response.data.reservations;
-});
+export const fetchReservations = createAsyncThunk(
+  'reservations/fetchReservations',
+  async () => {
+    // try {
+    const reservations = await authorizedRequest('http://127.0.0.1:4000/api/v1/reservations');
+    return reservations;
+    // } catch (error) {
+    //   // Handle errors if needed
+    //   throw error;
+    // }
+  },
+);
 
 const reservationsSlice = createSlice({
   name: 'reservations',

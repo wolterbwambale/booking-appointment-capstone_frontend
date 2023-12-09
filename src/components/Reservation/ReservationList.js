@@ -7,17 +7,28 @@ import './reservationList.css';
 function ReservationList() {
   const dispatch = useDispatch();
   const reservations = useSelector(selectReservations);
+  const token = useSelector((state) => state.user.token); // Retrieve the token from the Redux state
 
   useEffect(() => {
+    console.log('Token:', token);
+
     dispatch(fetchReservations());
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   const handleDelete = async (reservationId) => {
-    // Implement delete functionality here
-    await axios.delete(`http://127.0.0.1:4000/api/v1/reservations/${reservationId}`);
+    try {
+      await axios.delete(`http://127.0.0.1:4000/api/v1/reservations/${reservationId}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-    // After deleting, you may want to update the state or refetch reservations
-    dispatch(fetchReservations());
+      // After deleting, you may want to update the state or refetch reservations
+      dispatch(fetchReservations());
+    } catch (error) {
+      console.error('Error deleting reservation:', error);
+    }
   };
 
   return (

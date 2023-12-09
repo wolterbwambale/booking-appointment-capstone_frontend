@@ -1,3 +1,4 @@
+// userSlice.js
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit';
 
@@ -83,12 +84,12 @@ export const signup = createAsyncThunk(
 
 export const logout = createAsyncThunk(
   'user/logout',
-  async (_, { rejectWithValue }) => {
+  async (_, { rejectWithValue, dispatch }) => {
     try {
       // Perform any backend operations if necessary, like invalidating a token
       // For simplicity, we're just clearing the local state
+      dispatch(setToken(null)); // Clear the token
       return {}; // Return an empty object as the payload indicating a successful logout
-      // eslint-disable-next-line no-unreachable
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -107,18 +108,19 @@ const userSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.status = 'idle';
         state.user = action.payload;
-      });
-    builder
+        state.token = action.payload.token;
+        // Dispatch setToken here
+        const { payload: { token } } = action;
+        dispatch(setToken(token));
+      })
+
       .addCase(setToken, (state, action) => {
         state.token = action.payload.token;
       })
-
       .addCase(login.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
-      });
-
-    builder
+      })
       .addCase(signup.fulfilled, (state, action) => {
         state.user = action.payload;
         state.status = 'signed up';
@@ -126,13 +128,13 @@ const userSlice = createSlice({
       .addCase(signup.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        // Clear the user state on logout
+        state.user = null;
+        state.status = 'idle';
+        state.token = null; // Clear the token as well
       });
-
-    builder.addCase(logout.fulfilled, (state) => {
-      // Clear the user state on logout
-      state.user = null;
-      state.status = 'idle';
-    });
   },
 });
 
