@@ -16,7 +16,7 @@ export const login = createAsyncThunk(
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(userData),
+        body: JSON.stringify({ user: userData }),
       });
 
       const data = await response.json();
