@@ -64,7 +64,7 @@ function Navbar() {
                     <Link to="/Addform">AddItem</Link>
                   </li>
                   <li>
-                    <Link to="/Reservation">Appointments</Link>
+                    <Link to="/reservation">Appointments</Link>
                   </li>
                   {isAuthenticated ? (
                     // If authenticated
