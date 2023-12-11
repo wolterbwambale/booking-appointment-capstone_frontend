@@ -23,6 +23,7 @@ export const login = createAsyncThunk(
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          accept: 'application/json',
         },
         body: JSON.stringify(userData),
       });
@@ -31,10 +32,10 @@ export const login = createAsyncThunk(
       if (response.ok) {
         // Assuming the server responds with a token in the 'token' property of the response
         const { token } = data;
+        localStorage.setItem('token', token); // Corrected line
+        dispatch(setToken(token)); // Add this line
 
         // Store the token in the Redux state
-        dispatch(setToken(token));
-
         return data;
       }
 
@@ -59,6 +60,7 @@ export const signup = createAsyncThunk(
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          accept: 'application/json',
         },
         body: JSON.stringify({
           user: {
@@ -72,7 +74,7 @@ export const signup = createAsyncThunk(
 
       const data = await response.json();
       if (response.ok) {
-        return data;
+        localStorage.setItem('token', response.headers.get('Authorization')); // signup action
       }
       // Here we're assuming that the server responds with the error messages in 'data.errors'
       return rejectWithValue(data.message || 'An unknown error occurred');
@@ -106,15 +108,16 @@ const userSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(login.fulfilled, (state, action) => {
+        console.log('Login successful. Response:', action.payload);
+        const { token } = action.payload;
+        console.log('Extracted token:', token);
+
         state.status = 'idle';
         state.user = action.payload;
-        state.token = action.payload.token;
-        // Dispatch setToken here
-        const { payload: { token } } = action;
-        dispatch(setToken(token));
+        state.token = token;
       })
-
       .addCase(setToken, (state, action) => {
+        console.log('Token is being set:', action.payload.token);
         state.token = action.payload.token;
       })
       .addCase(login.rejected, (state, action) => {
@@ -131,11 +134,12 @@ const userSlice = createSlice({
       })
       .addCase(logout.fulfilled, (state) => {
         // Clear the user state on logout
-        state.user = null;
         state.status = 'idle';
-        state.token = null; // Clear the token as well
+        state.user = null; // Clear the user
+        state.token = null; // Clear the token
       });
   },
+
 });
 
 export default userSlice.reducer;

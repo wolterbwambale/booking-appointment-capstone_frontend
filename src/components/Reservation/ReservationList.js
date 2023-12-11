@@ -7,11 +7,8 @@ import './reservationList.css';
 function ReservationList() {
   const dispatch = useDispatch();
   const reservations = useSelector(selectReservations);
-  const token = useSelector((state) => state.user.token); // Retrieve the token from the Redux state
-
+  const token = useSelector((state) => state.user.token);
   useEffect(() => {
-    console.log('Token:', token);
-
     dispatch(fetchReservations());
   }, [dispatch, token]);
 
@@ -23,7 +20,6 @@ function ReservationList() {
           Authorization: `Bearer ${token}`,
         },
       });
-
       // After deleting, you may want to update the state or refetch reservations
       dispatch(fetchReservations());
     } catch (error) {
@@ -33,7 +29,7 @@ function ReservationList() {
 
   return (
     <div className="reservation-list">
-      <h2>Your Doctor Appointments</h2>
+      <h2>Doctor Appointments</h2>
 
       {reservations.map((reservation) => (
         <div key={reservation.id} className="reservation-item">

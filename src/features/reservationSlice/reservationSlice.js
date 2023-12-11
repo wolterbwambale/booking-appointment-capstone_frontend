@@ -1,17 +1,18 @@
 // src/features/reservationsSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import authorizedRequest from '../../api'; // Adjust the path
+import authorizedRequest from '../../api';
 
 export const fetchReservations = createAsyncThunk(
   'reservations/fetchReservations',
-  async () => {
-    // try {
-    const reservations = await authorizedRequest('http://127.0.0.1:4000/api/v1/reservations');
-    return reservations;
-    // } catch (error) {
-    //   // Handle errors if needed
-    //   throw error;
-    // }
+  async (_, { getState }) => {
+    // eslint-disable-next-line no-useless-catch
+    try {
+      const { token } = getState().user;
+      const reservations = await authorizedRequest('http://127.0.0.1:4000/api/v1/reservations', 'GET', { Authorization: `Bearer ${token}` });
+      return reservations;
+    } catch (error) {
+      throw error;
+    }
   },
 );
 
