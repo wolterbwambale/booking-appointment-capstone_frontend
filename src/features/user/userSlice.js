@@ -100,8 +100,8 @@ const userSlice = createSlice({
         state.user = action.payload;
         state.isAuthenticated = true;
         localStorage.setItem('isAuthenticated', JSON.stringify(true));
-        state.isAdmin = action.payload.admin;
-        localStorage.setItem('isAdmin', JSON.stringify(action.payload.admin || false));
+        state.isAdmin = action.payload.data.admin;
+        localStorage.setItem('isAdmin', JSON.stringify(action.payload.data.admin || false));
       })
       .addCase(login.rejected, (state, action) => {
         state.status = 'failed';
@@ -116,8 +116,8 @@ const userSlice = createSlice({
         state.status = 'signed up';
         state.isAuthenticated = true;
         localStorage.setItem('isAuthenticated', JSON.stringify(true));
-        state.isAdmin = action.payload.admin;
-        localStorage.setItem('isAdmin', JSON.stringify(action.payload.admin || false));
+        state.isAdmin = action.payload.data.admin;
+        localStorage.setItem('isAdmin', JSON.stringify(action.payload.data.admin || false));
       })
       .addCase(signup.rejected, (state, action) => {
         state.status = 'failed';
