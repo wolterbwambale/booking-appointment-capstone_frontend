@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../../features/user/userSlice';
 import '../Signup/form.css'; // Importing the shared CSS file for styling
 
@@ -7,8 +8,17 @@ function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user.user);
   const userStatus = useSelector((state) => state.user.status);
   const errorMessage = useSelector((state) => state.user.error);
+
+  useEffect(() => {
+    // If the user is defined, signup was successful
+    if (user) {
+      navigate('/'); // Redirects to the home page
+    }
+  }, [user, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -8,8 +8,7 @@ import Footer from '../Footer/Footer';
 function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user.user);
-
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
   const handleLogout = () => {
     dispatch(logout());
     navigate('/'); // Redirect to the home page after logout
@@ -67,7 +66,7 @@ function Navbar() {
                   <li>
                     <Link to="/Reservation">Appointments</Link>
                   </li>
-                  {user ? (
+                  {isAuthenticated ? (
                     // If authenticated
                     <li>
                       <button type="button" onClick={handleLogout}>
@@ -107,7 +106,7 @@ function Navbar() {
 
             <div>
               <ul>
-                {user ? (
+                {isAuthenticated ? (
                   // If authenticated
                   <>
                     <li>
