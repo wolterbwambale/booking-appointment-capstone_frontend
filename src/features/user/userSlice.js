@@ -1,10 +1,15 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+const storedIsAuthenticated = localStorage.getItem('isAuthenticated');
+const storedIsAdmin = localStorage.getItem('isAdmin');
+
 const initialState = {
   user: null,
-  status: 'idle', // 'idle', 'loading', 'failed'
+  status: 'idle',
   error: null,
+  isAuthenticated: storedIsAuthenticated ? JSON.parse(storedIsAuthenticated) : false,
+  isAdmin: storedIsAdmin ? JSON.parse(storedIsAdmin) : false,
 };
 
 export const login = createAsyncThunk(
@@ -16,7 +21,7 @@ export const login = createAsyncThunk(
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(userData),
+        body: JSON.stringify({ user: userData }),
       });
 
       const data = await response.json();
@@ -93,26 +98,43 @@ const userSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.status = 'idle';
         state.user = action.payload;
+        state.isAuthenticated = true;
+        localStorage.setItem('isAuthenticated', JSON.stringify(true));
+        state.isAdmin = action.payload.data.admin;
+        localStorage.setItem('isAdmin', JSON.stringify(action.payload.data.admin || false));
       })
       .addCase(login.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
+        state.isAuthenticated = false;
+        state.isAdmin = false;
       });
 
     builder
       .addCase(signup.fulfilled, (state, action) => {
         state.user = action.payload;
         state.status = 'signed up';
+        state.isAuthenticated = true;
+        localStorage.setItem('isAuthenticated', JSON.stringify(true));
+        state.isAdmin = action.payload.data.admin;
+        localStorage.setItem('isAdmin', JSON.stringify(action.payload.data.admin || false));
       })
       .addCase(signup.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
+        state.isAuthenticated = false;
+        state.isAdmin = false;
       });
 
     builder.addCase(logout.fulfilled, (state) => {
       // Clear the user state on logout
       state.user = null;
       state.status = 'idle';
+      state.isAuthenticated = false;
+      state.isAdmin = false;
+      // Clear data from localStorage
+      localStorage.removeItem('isAuthenticated');
+      localStorage.removeItem('isAdmin');
     });
   },
 });
