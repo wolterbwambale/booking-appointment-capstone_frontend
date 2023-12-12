@@ -9,6 +9,7 @@ function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+  const isAdmin = useSelector((state) => state.user.isAdmin);
   const handleLogout = () => {
     dispatch(logout());
     navigate('/'); // Redirect to the home page after logout
@@ -64,7 +65,7 @@ function Navbar() {
                     <Link to="/Addform">AddItem</Link>
                   </li>
                   <li>
-                    <Link to="/reservation">Appointments</Link>
+                    <Link to="/my-reservation">My Reservations</Link>
                   </li>
                   {isAuthenticated ? (
                     // If authenticated
@@ -124,13 +125,6 @@ function Navbar() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/reservation">
-                        <button type="button" className="btn btn-success">
-                          Appointments
-                        </button>
-                      </Link>
-                    </li>
-                    <li>
                       <button
                         type="button"
                         className="btn btn-success"
@@ -173,6 +167,29 @@ function Navbar() {
                     </li>
                   </>
                 )}
+
+                <ul>
+                  {isAuthenticated && isAdmin ? (
+                    // If authenticated, link to the dashboard
+                    <li>
+                      <Link to="/dashboard">
+                        <button type="button" className="btn btn-success">
+                          Dashboard
+                        </button>
+                      </Link>
+                    </li>
+                  ) : null}
+                </ul>
+
+                <li>
+                  {isAuthenticated && !isAdmin ? (
+                    <Link to="/my-reservation">
+                      <button type="button" className="btn btn-success">
+                        My Reservations
+                      </button>
+                    </Link>
+                  ) : null}
+                </li>
               </ul>
             </div>
           </div>
