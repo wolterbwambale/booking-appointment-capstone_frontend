@@ -22,8 +22,7 @@ function SignupForm() {
         id: user.data.id,
         name: user.data.name,
       };
-      sessionStorage.setItem('status', 'true');
-      sessionStorage.setItem('logged_user', JSON.stringify(userInfo));
+      
       navigate('/'); // Redirects to the home page
     }
   }, [user, navigate]);
