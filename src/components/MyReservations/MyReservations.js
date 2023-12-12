@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchMyReservations } from '../../features/reservation/reservationSlice';
+import {
+  fetchMyReservations,
+  deleteReservation,
+} from '../../features/reservation/reservationSlice';
 import './MyReservations.css'; // Import your CSS file
 
 function MyReservations() {
@@ -15,7 +18,7 @@ function MyReservations() {
   }, [dispatch]);
 
   const handleDelete = (reservationId) => {
-    // dispatch(deleteReservation(reservationId));
+    dispatch(deleteReservation(reservationId));
     console.log(reservationId);
   };
 
