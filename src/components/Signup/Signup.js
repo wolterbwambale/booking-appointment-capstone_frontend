@@ -18,6 +18,12 @@ function SignupForm() {
   useEffect(() => {
     // If the user is defined, signup was successful
     if (user) {
+      const userInfo = {
+        id: user.data.id,
+        name: user.data.name,
+      };
+      sessionStorage.setItem('status', 'true');
+      sessionStorage.setItem('logged_user', JSON.stringify(userInfo));
       navigate('/'); // Redirects to the home page
     }
   }, [user, navigate]);

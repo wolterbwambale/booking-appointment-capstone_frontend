@@ -13,6 +13,7 @@ import Feature from './components/Feature/Feature';
 import LoginForm from './components/Login/LoginForm';
 import SignupForm from './components/Signup/Signup';
 import Reservation from './components/Reservation/Reservation';
+import DoctorForm from './components/DoctorForm/DoctorForm';
 import ProtectedRoute from './components/ProtectedRoute';
 import Footer from './components/Footer/Footer';
 import DoctorInfo from './components/Feature/DoctorInfo/DoctorInfo';
@@ -28,6 +29,8 @@ function App() {
           <div className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/Addform" element={<DoctorForm />} />
+
               <Route
                 path="/feature"
                 element={<Feature doctorId={doctorId} />}

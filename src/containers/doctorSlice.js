@@ -14,41 +14,6 @@ export const createDoctor = createAsyncThunk('doctorForm/create', async (doctorD
   if (!userId) {
     throw new Error('User is not logged in.');
   }
-
-  const formData = createDoctorFormData(doctorData, userId);
-  const response = await axios.post('http://localhost:4000/api/v1/doctors', formData);
-
-  if (response.status !== 200) {
-    throw new Error('Error adding doctor');
-  }
-
-  response.data.formdata = formData;
-  callback();
-  return response.data;
-});
-
-const addDoctorSlice = createSlice({
-  name: 'doctorForm',
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(createDoctor.pending, (state) => ({
-        ...state,
-        status: 'loading',
-        error: null,
-      }))
-      .addCase(createDoctor.fulfilled, (state) => ({
-        ...state,
-        status: 'succeeded',
-        error: null,
-      }))
-      .addCase(createDoctor.rejected, (state, action) => ({
-        ...state,
-        status: 'failed',
-        error: action.error.message,
-      }));
-  },
 });
 
 export default addDoctorSlice.reducer;
