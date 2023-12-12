@@ -12,13 +12,12 @@ import Navbar from './components/Navbar/Navbar';
 import Feature from './components/Feature/Feature';
 import LoginForm from './components/Login/LoginForm';
 import SignupForm from './components/Signup/Signup';
-import Reservation from './components/Reservation/Reservation';
-import DoctorForm from './components/DoctorForm/DoctorForm';
 import MyReservations from './components/MyReservations/MyReservations';
 import ProtectedRoute from './components/ProtectedRoute';
 import Footer from './components/Footer/Footer';
 import Dashboard from './components/Dashboard/Dashboard';
 import DoctorInfo from './components/Feature/DoctorInfo/DoctorInfo';
+import AddDoctorForm from './containers/addform/AddDoctorForm';
 import './app.css';
 
 function App() {
@@ -28,32 +27,9 @@ function App() {
       <Provider store={store}>
         <Router>
           <Navbar />
-
-          <div className="main-content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/Addform" element={<DoctorForm />} />
-
-              <Route
-                path="/feature"
-                element={<Feature doctorId={doctorId} />}
-              />
-              <Route path="/login" element={<LoginForm />} />
-              <Route path="/signup" element={<SignupForm />} />
-              <Route element={<ProtectedRoute />}>
-                <Route path="/reservation" element={<Reservation />} />
-              </Route>
-              <Route path="*" element={<Navigate to="/" />} />
-              <Route path="/doctor_info/:id" element={<DoctorInfo />} />
-            </Routes>
-          </div>
-        </div>
-        <Footer />
-      </Router>
-    </Provider>
-
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/AddDoctorForm" element={<AddDoctorForm />} />
             <Route path="/feature" element={<Feature doctorId={doctorId} />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
@@ -68,7 +44,6 @@ function App() {
         </Router>
       </Provider>
     </div>
-
   );
 }
 

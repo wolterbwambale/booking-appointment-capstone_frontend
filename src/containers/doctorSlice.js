@@ -52,4 +52,3 @@ const addDoctorSlice = createSlice({
 });
 
 export default addDoctorSlice.reducer;
-
