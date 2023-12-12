@@ -39,10 +39,24 @@ export const fetchMyReservations = createAsyncThunk(
   },
 );
 
+export const deleteReservation = createAsyncThunk(
+  'reservations/deleteReservation',
+  async (reservationId) => {
+    try {
+      await axios.delete(
+        `http://127.0.0.1:4000/api/v1/reservations/${reservationId}`,
+      );
+      return reservationId;
+    } catch (error) {
+      throw new Error('Failed to delete reservation');
+    }
+  },
+);
+
 const reservationSlice = createSlice({
   name: 'reservations',
   initialState,
-  reducers: {}, // Add your reducers here if needed
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchAllReservations.pending, (state) => {
@@ -68,10 +82,26 @@ const reservationSlice = createSlice({
       .addCase(fetchMyReservations.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
+      })
+
+      .addCase(deleteReservation.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(deleteReservation.fulfilled, (state, action) => {
+        state.isLoading = false;
+        const deletedReservationId = action.payload;
+        state.myReservations = state.myReservations.filter(
+          (reservation) => reservation.id !== deletedReservationId,
+        );
+      })
+      .addCase(deleteReservation.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
       });
   },
 });
 
-// export const selectReservations = (state) => state.reservations.reservations;
+// ... (existing code)
 
 export default reservationSlice.reducer;
