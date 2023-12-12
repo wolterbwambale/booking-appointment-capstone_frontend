@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../../features/user/userSlice';
-import './Navbar.css';
-import Footer from '../Footer/Footer';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../features/user/userSlice";
+import "./Navbar.css";
+import Footer from "../Footer/Footer";
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ function Navbar() {
   const isAdmin = useSelector((state) => state.user.isAdmin);
   const handleLogout = () => {
     dispatch(logout());
-    navigate('/'); // Redirect to the home page after logout
+    navigate("/"); // Redirect to the home page after logout
   };
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -22,10 +22,10 @@ function Navbar() {
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -132,13 +132,6 @@ function Navbar() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/Addform">
-                        <button type="button" className="btn btn-success">
-                          Doctor Form
-                        </button>
-                      </Link>
-                    </li>
-                    <li>
                       <button
                         type="button"
                         className="btn btn-success"
@@ -158,6 +151,13 @@ function Navbar() {
                         </button>
                       </Link>
                     </li>
+                    {/* <li>
+                      <Link to="/AddDoctorForm">
+                        <button type="button" className="btn btn-success">
+                          Doctor Form
+                        </button>
+                      </Link>
+                    </li> */}
                     <li>
                       <Link to="/feature">
                         <button type="button" className="btn btn-success">
@@ -185,13 +185,22 @@ function Navbar() {
                 <ul>
                   {isAuthenticated && isAdmin ? (
                     // If authenticated, link to the dashboard
-                    <li>
-                      <Link to="/dashboard">
-                        <button type="button" className="btn btn-success">
-                          Dashboard
-                        </button>
-                      </Link>
-                    </li>
+                    <>
+                      <li>
+                        <Link to="/dashboard">
+                          <button type="button" className="btn btn-success">
+                            Dashboard
+                          </button>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/Addform">
+                          <button type="button" className="btn btn-success">
+                            Doctor Form
+                          </button>
+                        </Link>
+                      </li>
+                    </>
                   ) : null}
                 </ul>
 
