@@ -22,7 +22,32 @@ export const createDoctor = createAsyncThunk('doctorForm/create', async (doctorD
     throw new Error('Error adding doctor');
   }
 
-  
+  response.data.formdata = formData;
+  callback();
+  return response.data;
+});
+
+const addDoctorSlice = createSlice({
+  name: 'doctorForm',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(createDoctor.pending, (state) => ({
+        ...state,
+        status: 'loading',
+        error: null,
+      }))
+      .addCase(createDoctor.fulfilled, (state) => ({
+        ...state,
+        status: 'succeeded',
+        error: null,
+      }))
+      .addCase(createDoctor.rejected, (state, action) => ({
+        ...state,
+        status: 'failed',
+        error: action.error.message,
+      }));
   },
 });
 
