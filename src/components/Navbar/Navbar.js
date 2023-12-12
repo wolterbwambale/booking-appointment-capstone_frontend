@@ -8,8 +8,8 @@ import Footer from '../Footer/Footer';
 function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user.user);
-
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+  const isAdmin = useSelector((state) => state.user.isAdmin);
   const handleLogout = () => {
     dispatch(logout());
     navigate('/'); // Redirect to the home page after logout
@@ -65,9 +65,9 @@ function Navbar() {
                     <Link to="/Addform">DoctorForm</Link>
                   </li>
                   <li>
-                    <Link to="/Reservation">Appointments</Link>
+                    <Link to="/my-reservation">My Reservations</Link>
                   </li>
-                  {user ? (
+                  {isAuthenticated ? (
                     // If authenticated
                     <li>
                       <button type="button" onClick={handleLogout}>
@@ -107,7 +107,7 @@ function Navbar() {
 
             <div>
               <ul>
-                {user ? (
+                {isAuthenticated ? (
                   // If authenticated
                   <>
                     <li>
@@ -181,6 +181,29 @@ function Navbar() {
                     </li>
                   </>
                 )}
+
+                <ul>
+                  {isAuthenticated && isAdmin ? (
+                    // If authenticated, link to the dashboard
+                    <li>
+                      <Link to="/dashboard">
+                        <button type="button" className="btn btn-success">
+                          Dashboard
+                        </button>
+                      </Link>
+                    </li>
+                  ) : null}
+                </ul>
+
+                <li>
+                  {isAuthenticated && !isAdmin ? (
+                    <Link to="/my-reservation">
+                      <button type="button" className="btn btn-success">
+                        My Reservations
+                      </button>
+                    </Link>
+                  ) : null}
+                </li>
               </ul>
             </div>
           </div>
