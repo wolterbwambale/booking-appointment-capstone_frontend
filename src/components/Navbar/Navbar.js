@@ -62,7 +62,7 @@ function Navbar() {
                     <Link to="/feature">Doctors</Link>
                   </li>
                   <li>
-                    <Link to="/Addform">AddItem</Link>
+                    <Link to="/Addform">DoctorForm</Link>
                   </li>
                   <li>
                     <Link to="/my-reservation">My Reservations</Link>
@@ -125,6 +125,13 @@ function Navbar() {
                       </Link>
                     </li>
                     <li>
+                      <Link to="/reservation">
+                        <button type="button" className="btn btn-success">
+                          Appointments
+                        </button>
+                      </Link>
+                    </li>
+                    <li>
                       <button
                         type="button"
                         className="btn btn-success"
@@ -144,6 +151,13 @@ function Navbar() {
                         </button>
                       </Link>
                     </li>
+                    {/* <li>
+                      <Link to="/AddDoctorForm">
+                        <button type="button" className="btn btn-success">
+                          Doctor Form
+                        </button>
+                      </Link>
+                    </li> */}
                     <li>
                       <Link to="/feature">
                         <button type="button" className="btn btn-success">
@@ -171,13 +185,22 @@ function Navbar() {
                 <ul>
                   {isAuthenticated && isAdmin ? (
                     // If authenticated, link to the dashboard
-                    <li>
-                      <Link to="/dashboard">
-                        <button type="button" className="btn btn-success">
-                          Dashboard
-                        </button>
-                      </Link>
-                    </li>
+                    <>
+                      <li>
+                        <Link to="/dashboard">
+                          <button type="button" className="btn btn-success">
+                            Dashboard
+                          </button>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/Addform">
+                          <button type="button" className="btn btn-success">
+                            Doctor Form
+                          </button>
+                        </Link>
+                      </li>
+                    </>
                   ) : null}
                 </ul>
 
