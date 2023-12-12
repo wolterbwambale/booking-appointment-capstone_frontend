@@ -1,4 +1,3 @@
-/* Main Layout */
 .main-layout {
   display: flex;
   min-height: 100vh;
@@ -22,9 +21,8 @@
 .component-container {
   width: 100%; /* Take up full width of .main-content */
   max-width: 800px; /* Maximum width of any component */
+  margin: 0 auto; /* Adjusted margin to avoid going under the vertical-line */
   margin-bottom: 20px; /* Space between components */
 
   /* Additional styling as needed */
 }
-
-/* Styles for specific components like form-container would be added separately */

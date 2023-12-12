@@ -1,15 +1,18 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const storedIsAuthenticated = localStorage.getItem('isAuthenticated');
-const storedIsAdmin = localStorage.getItem('isAdmin');
+const storedUser = localStorage.getItem('user');
+const storedIsAuthenticated = storedUser
+  ? JSON.parse(storedUser).isAuthenticated
+  : false;
+const storedIsAdmin = storedUser ? JSON.parse(storedUser).admin : false;
 
 const initialState = {
-  user: null,
+  user: storedUser,
   status: 'idle',
   error: null,
-  isAuthenticated: storedIsAuthenticated ? JSON.parse(storedIsAuthenticated) : false,
-  isAdmin: storedIsAdmin ? JSON.parse(storedIsAdmin) : false,
+  isAuthenticated: storedIsAuthenticated,
+  isAdmin: storedIsAdmin,
 };
 
 export const login = createAsyncThunk(
@@ -97,11 +100,16 @@ const userSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.user = action.payload;
+        state.user = action.payload.data;
         state.isAuthenticated = true;
-        localStorage.setItem('isAuthenticated', JSON.stringify(true));
         state.isAdmin = action.payload.data.admin;
-        localStorage.setItem('isAdmin', JSON.stringify(action.payload.data.admin || false));
+        localStorage.setItem(
+          'user',
+          JSON.stringify({
+            ...action.payload.data,
+            isAuthenticated: true,
+          }),
+        );
       })
       .addCase(login.rejected, (state, action) => {
         state.status = 'failed';
@@ -112,12 +120,17 @@ const userSlice = createSlice({
 
     builder
       .addCase(signup.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user = action.payload.data;
         state.status = 'signed up';
         state.isAuthenticated = true;
-        localStorage.setItem('isAuthenticated', JSON.stringify(true));
         state.isAdmin = action.payload.data.admin;
-        localStorage.setItem('isAdmin', JSON.stringify(action.payload.data.admin || false));
+        localStorage.setItem(
+          'user',
+          JSON.stringify({
+            ...action.payload.data,
+            isAuthenticated: true,
+          }),
+        );
       })
       .addCase(signup.rejected, (state, action) => {
         state.status = 'failed';
@@ -133,10 +146,10 @@ const userSlice = createSlice({
       state.isAuthenticated = false;
       state.isAdmin = false;
       // Clear data from localStorage
-      localStorage.removeItem('isAuthenticated');
-      localStorage.removeItem('isAdmin');
+      localStorage.removeItem('user');
     });
   },
 });
 
+export const selectUserId = (state) => state.user.user.id;
 export default userSlice.reducer;
