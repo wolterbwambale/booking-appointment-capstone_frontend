@@ -14,6 +14,16 @@ export const createDoctor = createAsyncThunk('doctorForm/create', async (doctorD
   if (!userId) {
     throw new Error('User is not logged in.');
   }
+
+  const formData = createDoctorFormData(doctorData, userId);
+  const response = await axios.post('http://localhost:4000/api/v1/doctors', formData);
+
+  if (response.status !== 200) {
+    throw new Error('Error adding doctor');
+  }
+
+  
+  },
 });
 
 export default addDoctorSlice.reducer;
