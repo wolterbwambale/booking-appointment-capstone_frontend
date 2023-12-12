@@ -194,7 +194,7 @@ function Navbar() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/Addform">
+                        <Link to="/AddDoctorForm">
                           <button type="button" className="btn btn-success">
                             Doctor Form
                           </button>
