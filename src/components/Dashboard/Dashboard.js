@@ -65,7 +65,7 @@ function Dashboard() {
             <tr>
               <th>Name</th>
               <th>Specialization</th>
-              {/* Add more doctor details as needed */}
+              <th>Year of Experience</th>
             </tr>
           </thead>
           <tbody>
@@ -73,7 +73,7 @@ function Dashboard() {
               <tr key={doctor.id}>
                 <td>{doctor.name}</td>
                 <td>{doctor.specialization}</td>
-                {/* Add more doctor details as needed */}
+                <td>{doctor.years_of_experience}</td>
               </tr>
             ))}
           </tbody>

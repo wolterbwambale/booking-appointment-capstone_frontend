@@ -1,7 +1,10 @@
 // MyReservations.js
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchMyReservations, deleteReservation } from '../../features/reservation/reservationSlice';
+import {
+  fetchMyReservations,
+  deleteReservation,
+} from '../../features/reservation/reservationSlice';
 import './MyReservations.css'; // Import your CSS file
 
 function MyReservations() {
@@ -13,9 +16,8 @@ function MyReservations() {
     dispatch(fetchMyReservations());
   }, [dispatch]);
 
-  const handleDelete = async (reservationId) => {
-    await dispatch(deleteReservation(reservationId));
-    // console.log(reservationId);
+  const handleDelete = (reservationId) => {
+    dispatch(deleteReservation(reservationId));
   };
 
   if (isLoading) {

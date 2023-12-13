@@ -22,7 +22,6 @@ import AddDoctorForm from './containers/addform/AddDoctorForm';
 import './app.css';
 
 function App() {
-  // const doctorId = 1;
   return (
     <div className="main-layout">
       <Provider store={store}>
@@ -33,7 +32,6 @@ function App() {
             <Route path="/reservation-form/:doctorName" element={<ReservationForm />} />
             <Route path="/AddDoctorForm" element={<AddDoctorForm />} />
             <Route path="/feature" element={<Feature />} />
-
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route element={<ProtectedRoute />}>
