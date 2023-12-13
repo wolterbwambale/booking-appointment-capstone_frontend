@@ -1,71 +1,203 @@
-# Getting Started with Create React App
+# 📗 Table of Contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+- [💻 Getting Started](#getting-started)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ (OPTIONAL)](#faq)
+- [📝 License](#license)
 
-## Available Scripts
 
-In the project directory, you can run:
-
-### `npm start`
+# 📖 Doctors clinic project <a name="about-project"></a>
+<br>
 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br>
+Explore the seamless world of healthcare with our clinic management project! Featuring two dedicated repositories for front-end and back-end, our user-friendly platform empowers users to navigate clinic pages, learn about doctors, and book appointments effortlessly. Admin privileges unlock the ability to add doctors seamlessly. Behind the scenes, our robust back-end efficiently manages data operations, including GET, PUT, POST, and DESTROY, ensuring a smooth and secure user experience. Elevate healthcare management with our comprehensive solution.<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Built With <a name="built-with"></a>
+<br>
 
-### `npm test`
+- **Ruby on Rails (Back End):** The powerful Rails framework forms the backbone of our project, seamlessly managing data operations and ensuring a robust server-side architecture. [Back-End Repository](https://github.com/agneta1991/book-an-appointment-capstone)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Front-End UI Repository:** Explore the dynamic user interface crafted for an intuitive experience. [Front-End Repository](https://github.com/wolterbwambale/booking-appointment-capstone_frontend)
+<br>
 
-### `npm run build`
+### Key Features <a name="key-features"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Front end Functionality** is fetching data from our ROR app and displaying data on doctors, giving the ability to reserve/book an appointment with chosen doctor
 
-### `npm run eject`
+- **Designed for admin use** as well as customers, admins are able to manage new employees, as well as update current employees information, see all reservations, cancel them or make changes to it, where customer does not have that sort of functionality.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 💻 Getting Started <a name="getting-started"></a>
+<br>
 
-## Learn More
+To get a local copy up and running, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Choose a directory
+2. Open a Terminal
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Backend (Ruby on Rails)
 
-### Code Splitting
+3. Run the following command to clone the frontend repository:
+    ```bash
+    git clone https://github.com/agneta1991/book-an-appointment-capstone
+    ```
+4. Navigate into the backend directory:
+    ```bash
+    cd book-an-appointment-capstone
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+5. Set up the database:
+    ```bash
+    rails db:create
+    rails db:migrate
+    ```
 
-### Analyzing the Bundle Size
+6. Start the Rails server:
+    ```bash
+    rails server
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Frontend (React)
 
-### Making a Progressive Web App
+7. Open a new terminal.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+8. Run the following command to clone the frontend repository:
+    ```bash
+    git clone https://github.com/wolterbwambale/booking-appointment-capstone_frontend
+    ```
 
-### Advanced Configuration
+9. Navigate into the frontend directory:
+    ```bash
+    cd booking-appointment-capstone_frontend
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+10. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-### Deployment
+11. Start the React development server:
+    ```bash
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+12. Visit http://localhost:3000 in your web browser to explore the application. Ensure both the Rails and React servers are running simultaneously for the full experience.
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 👥 Authors <a name="authors"></a>
+<br>
+
+
+👤 **Agneta Pupienyte**
+
+- GitHub: [@githubhandle](https://github.com/agneta1991)
+- Twitter: [@twitterhandle](https://twitter.com/pupienytea)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/agneta-pupienyte)
+
+👤 **Bhekisile Jozi**
+
+- GitHub: [@githubhandle](https://github.com/Bhekisile)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/bhekisile-j-b9823369)
+
+👤 **IKONDE NEKEMIAH ARNOLD**
+
+- GitHub: [@githubhandle](https://arnoldnekemiah.github.io/portfolio-final/)
+- Twitter: [@twitterhandle](@arnoldikonde)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/arnoldnekemiah)
+
+👤 **Yousef Badr**
+
+- GitHub: [@githubhandle](https://github.com/ybadr99)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/yousef-mohamed-badr)
+
+👤 **Bwambale Benny Wolter**
+
+- GitHub: [@githubhandle](https://github.com/wolterbwambale)
+- Twitter: [@twitterhandle](@BwambaleWolter)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/bwambale-benny-wolter-a9284925a)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 🔭 Future Features <a name="future-features"></a>
+
+Exciting enhancements are planned for the future to elevate the clinic project's capabilities. Here's a glimpse of upcoming features:
+
+### 1. Patient Dashboard:
+
+- Enhance the patient experience with a personalized dashboard.
+- Provide a comprehensive view of appointment history, prescriptions, and upcoming appointments.
+
+### 2. Prescription Renewal:
+
+- Streamline the prescription renewal process for both patients and doctors.
+- Enable patients to request prescription renewals through the platform for a more convenient healthcare experience.
+
+### 3. Notification System:
+
+- Keep patients informed with a robust notification system.
+- Implement reminders for upcoming appointments, prescription refills, and other essential health-related information.
+
+### 4. Advanced Search and Filters:
+
+- Improve the search functionality for finding doctors.
+- Enable patients to filter doctors based on specific criteria such as specialty, location, and availability.
+
+Stay tuned for these exciting additions to make managing health and appointments even more seamless!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 🤝 Contributing <a name="contributing"></a>Contributions, issues, and feature requests are welcome!
+<br>
+
+Feel free to check the [issues page](https://github.com/agneta1991/book-an-appointment-capstone/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+## ⭐️ Show your support <a name="support"></a>
+<br>
+
+If you like our project please show your support and give this page a star!
+<br>
+<br>
+[![Star](https://img.shields.io/github/stars/wolterbwambale/booking-appointment-capstone_frontend?style=social)](https://github.com/wolterbwambale/booking-appointment-capstone_frontend)
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+<br>
+
+<br>
+We would like to extend my heartfelt gratitude to Microverse for providing me with the opportunity to undertake this project. Additionally, we are immensely thankful to the code reviewers who takes the time to assess my work and provide valuable feedback, which greatly contributed to the refinement and success of the project. Your guidance and support have been invaluable throughout this endeavor, and I am truly grateful for your contributions.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br>
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.

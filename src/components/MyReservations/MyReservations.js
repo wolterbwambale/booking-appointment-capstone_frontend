@@ -1,13 +1,15 @@
+// MyReservations.js
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchMyReservations } from '../../features/reservation/reservationSlice';
-import './MyReservations.css'; // Import your CSS file
+import {
+  fetchMyReservations,
+  deleteReservation,
+} from '../../features/reservation/reservationSlice';
+import './MyReservations.css';
 
 function MyReservations() {
   const dispatch = useDispatch();
-  const myReservations = useSelector(
-    (state) => state.reservations.myReservations,
-  );
+  const myReservations = useSelector((state) => state.reservations.myReservations);
   const isLoading = useSelector((state) => state.reservations.isLoading);
 
   useEffect(() => {
@@ -15,8 +17,7 @@ function MyReservations() {
   }, [dispatch]);
 
   const handleDelete = (reservationId) => {
-    // dispatch(deleteReservation(reservationId));
-    console.log(reservationId);
+    dispatch(deleteReservation(reservationId));
   };
 
   if (isLoading) {
@@ -39,7 +40,7 @@ function MyReservations() {
           {myReservations.map((reservation) => (
             <tr key={reservation.id}>
               <td>{reservation.date}</td>
-              <td>{reservation.doctor.name}</td>
+              <td>{reservation.doctor ? reservation.doctor.name : 'Unknown Doctor'}</td>
               <td>{reservation.description}</td>
               <td>
                 <button

@@ -13,6 +13,7 @@ import Feature from './components/Feature/Feature';
 import LoginForm from './components/Login/LoginForm';
 import SignupForm from './components/Signup/Signup';
 import MyReservations from './components/MyReservations/MyReservations';
+import ReservationForm from './containers/reservationform/reservationform';
 import ProtectedRoute from './components/ProtectedRoute';
 import Footer from './components/Footer/Footer';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -21,7 +22,6 @@ import DoctorForm from './components/DoctorForm/DoctorForm';
 import './app.css';
 
 function App() {
-  const doctorId = 1;
   return (
     <div className="main-layout">
       <Provider store={store}>
@@ -29,8 +29,9 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Addform" element={<DoctorForm />} />
-            <Route path="/feature" element={<Feature doctorId={doctorId} />} />
+            <Route path="/reservation-form/:doctorName" element={<ReservationForm />} />
+            <Route path="/AddDoctorForm" element={<AddDoctorForm />} />
+            <Route path="/feature" element={<Feature />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route element={<ProtectedRoute />}>

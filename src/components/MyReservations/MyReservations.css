@@ -1,4 +1,9 @@
 /* MyReservations.css */
+.component-container {
+  width: 100%;
+  height: 100%;
+}
+
 .reservation-table {
   width: 100%;
   border-collapse: collapse;
