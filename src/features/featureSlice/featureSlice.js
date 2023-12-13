@@ -86,7 +86,8 @@ const doctorsSlice = createSlice({
       })
       .addCase(updateDoctor.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.doctors = state.doctors.map((doctor) => (doctor.id === action.payload.id ? action.payload : doctor));
+        state.doctors = state.doctors.map((doctor) => (
+          doctor.id === action.payload.id ? action.payload : doctor));
       })
       .addCase(updateDoctor.rejected, (state, action) => {
         state.isLoading = false;
