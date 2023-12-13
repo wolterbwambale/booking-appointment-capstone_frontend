@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { fetchAllReservations } from '../../features/reservation/reservationSlice';
+import { fetchAllReservations, deleteReservation as deleteReservationAction } from '../../features/reservation/reservationSlice';
 import {
   fetchDoctorById,
   selectDoctors,
@@ -20,6 +20,11 @@ function Dashboard() {
     dispatch(fetchAllReservations());
     dispatch(fetchDoctorById());
   }, [dispatch]);
+
+  const handleDelete = (reservationId) => {
+    // Dispatch the deleteReservation action with the reservationId
+    dispatch(deleteReservationAction(reservationId));
+  };
 
   if (!isAdmin) {
     // Redirect to login page for users who are not admins
@@ -40,7 +45,6 @@ function Dashboard() {
               <th>Doctor Name</th>
               <th>Specialization</th>
               <th>Actions</th>
-              {/* Add more reservation details as needed */}
             </tr>
           </thead>
           <tbody>
@@ -50,8 +54,15 @@ function Dashboard() {
                 <td>{reservation.user.name}</td>
                 <td>{reservation.doctor.name}</td>
                 <td>{reservation.doctor.specialization}</td>
-                <td>Delete</td>
-                {/* Add more reservation details as needed */}
+                <td>
+                  <button
+                    className="delete-btn"
+                    type="button"
+                    onClick={() => handleDelete(reservation.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -80,7 +91,6 @@ function Dashboard() {
         </table>
       </section>
 
-      {/* Add other components or sections based on user roles */}
     </div>
   );
 }

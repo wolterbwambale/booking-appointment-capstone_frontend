@@ -5,7 +5,7 @@ import {
   fetchMyReservations,
   deleteReservation,
 } from '../../features/reservation/reservationSlice';
-import './MyReservations.css'; // Import your CSS file
+import './MyReservations.css';
 
 function MyReservations() {
   const dispatch = useDispatch();
