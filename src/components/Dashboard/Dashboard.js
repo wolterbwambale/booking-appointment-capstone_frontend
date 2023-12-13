@@ -5,8 +5,7 @@ import { Navigate, Link } from 'react-router-dom';
 import {
   fetchAllReservations,
   deleteReservation as deleteReservationAction,
-}
-  from '../../features/reservation/reservationSlice';
+} from '../../features/reservation/reservationSlice';
 import {
   fetchDoctorById,
   selectDoctors,
@@ -80,7 +79,7 @@ function Dashboard() {
             <li>
               <Link to="/AddDoctorForm">
                 <button type="button" className="btn btn-primary">
-                  Doctor Form
+                  Add Doctor
                 </button>
               </Link>
             </li>

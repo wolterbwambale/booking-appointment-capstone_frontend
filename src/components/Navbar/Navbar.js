@@ -62,9 +62,6 @@ function Navbar() {
                     <Link to="/feature">Doctors</Link>
                   </li>
                   <li>
-                    <Link to="/Addform">DoctorForm</Link>
-                  </li>
-                  <li>
                     <Link to="/my-reservation">My Reservations</Link>
                   </li>
                   {isAuthenticated ? (
@@ -132,13 +129,6 @@ function Navbar() {
                       >
                         Logout
                       </button>
-                    </li>
-                    <li>
-                      <Link to="/Addform">
-                        <button type="button" className="btn btn-success">
-                          Doctor Form
-                        </button>
-                      </Link>
                     </li>
                   </>
                 ) : (

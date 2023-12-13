@@ -1,18 +1,19 @@
 /* LoginForm.css or SignupForm.css */
 .form-container {
-  max-width: 450px; /* Adjusted to be a bit more narrow to fit a sleek design */
   margin: 2em auto; /* Increased margin at the top for better spacing */
   padding: 20px;
   border: none; /* Removed border for a cleaner look */
   border-radius: 8px;
   background-color: #fff; /* Changed to pure white for a modern look */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
-  font-family: 'Arial', sans-serif; /* Assuming the Vespa design uses a sans-serif font */
+  font-family: 'Arial', sans-serif;
+  width: 30%;
+  height: 20%;
 }
 
 .form-container h2 {
-  color: #333; /* Darker color for the title to match the navbar */
-  font-weight: normal; /* Assuming the Vespa design does not use bold titles */
+  color: #333;
+  font-weight: normal;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -56,6 +57,17 @@
 
 @media only screen and (max-width: 375px) {
   .form-container {
-    margin-top: 10rem;
+    /* margin-top: 10rem; */
+    margin: 4em auto;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family:
+      'Arial',
+      sans-serif;
+    width: 100%;
+    height: 20%;
   }
 }

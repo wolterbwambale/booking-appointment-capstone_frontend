@@ -1,5 +1,4 @@
 input[type=text] {
-  width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -78,5 +77,13 @@ label {
 
   .container > .form {
     width: 100%;
+  }
+
+  input[type=text] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
   }
 }
