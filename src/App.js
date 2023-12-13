@@ -17,7 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Footer from './components/Footer/Footer';
 import Dashboard from './components/Dashboard/Dashboard';
 import DoctorInfo from './components/Feature/DoctorInfo/DoctorInfo';
-import AddDoctorForm from './containers/addform/AddDoctorForm';
+import DoctorForm from './components/DoctorForm/DoctorForm';
 import './app.css';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/AddDoctorForm" element={<AddDoctorForm />} />
+            <Route path="/Addform" element={<DoctorForm />} />
             <Route path="/feature" element={<Feature doctorId={doctorId} />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
