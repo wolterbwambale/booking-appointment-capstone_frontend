@@ -28,7 +28,7 @@ export const fetchAllReservations = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        'http://127.0.0.1:4000/api/v1/reservations/getAll',
+        'http://127.0.0.1:4000/api/v1/reservations/all',
       );
       return response.data;
     } catch (error) {
