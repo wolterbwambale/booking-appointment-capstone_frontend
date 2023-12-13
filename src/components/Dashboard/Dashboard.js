@@ -6,7 +6,6 @@ import { fetchAllReservations } from '../../features/reservation/reservationSlic
 import {
   fetchDoctorById,
   deleteDoctorById,
-  updateDoctor,
   selectDoctors,
 } from '../../features/featureSlice/featureSlice';
 import './Dashboard.css';
@@ -25,14 +24,6 @@ function Dashboard() {
 
   const handleDelete = (doctorId) => {
     dispatch(deleteDoctorById(doctorId));
-  };
-
-  const handleUpdate = (doctor) => {
-    if (doctor && doctor.id) {
-      dispatch(updateDoctor(doctor)); // Dispatch an update action for the selected doctor
-    } else {
-      console.error('Doctor ID is missing or invalid');
-    }
   };
 
   if (!isAdmin) {
@@ -54,7 +45,6 @@ function Dashboard() {
               <th>Doctor Name</th>
               <th>Specialization</th>
               <th>Actions</th>
-              {/* Add more reservation details as needed */}
             </tr>
           </thead>
           <tbody>
@@ -64,8 +54,6 @@ function Dashboard() {
                 <td>{reservation.user.name}</td>
                 <td>{reservation.doctor.name}</td>
                 <td>{reservation.doctor.specialization}</td>
-                <td>Delete</td>
-                {/* Add more reservation details as needed */}
               </tr>
             ))}
           </tbody>
@@ -101,13 +89,6 @@ function Dashboard() {
                 <td>
                   <button
                     type="button"
-                    className="btn btn-secondary"
-                    onClick={() => handleUpdate(doctor.id)}
-                  >
-                    Update
-                  </button>
-                  <button
-                    type="button"
                     className="btn btn-danger"
                     onClick={() => handleDelete(doctor.id)}
                   >
@@ -119,7 +100,6 @@ function Dashboard() {
           </tbody>
         </table>
       </section>
-      {/* Add other components or sections based on user roles */}
     </div>
   );
 }
