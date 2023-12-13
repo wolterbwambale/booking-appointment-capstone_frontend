@@ -9,12 +9,26 @@ const initialState = {
   error: null,
 };
 
+export const createReservation = createAsyncThunk(
+  'reservations/createReservation',
+  async (reservationData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post('http://127.0.0.1:4000/api/v1/reservations', {
+        reservation: reservationData,
+      });
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
+
 export const fetchAllReservations = createAsyncThunk(
   'reservations/fetchAllReservations',
   async () => {
     try {
       const response = await axios.get(
-        'http://127.0.0.1:4000/api/v1/reservations/getAll',
+        'http://127.0.0.1:4000/api/v1/reservations/all',
       );
       return response.data;
     } catch (error) {
@@ -96,6 +110,19 @@ const reservationSlice = createSlice({
         );
       })
       .addCase(deleteReservation.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(createReservation.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(createReservation.fulfilled, (state, action) => {
+        state.isLoading = false;
+        // Add the newly created reservation to the state
+        state.myReservations = [...state.myReservations, action.payload];
+      })
+      .addCase(createReservation.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       });

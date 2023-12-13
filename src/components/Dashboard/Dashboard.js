@@ -6,7 +6,7 @@ import { fetchAllReservations } from '../../features/reservation/reservationSlic
 import {
   fetchDoctorById,
   selectDoctors,
-} from '../../featureSlice/featureSlice';
+} from '../../features/featureSlice/featureSlice';
 import './Dashboard.css';
 
 function Dashboard() {
