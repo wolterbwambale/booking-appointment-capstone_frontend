@@ -8,7 +8,7 @@ const storedIsAuthenticated = storedUser
 const storedIsAdmin = storedUser ? JSON.parse(storedUser).admin : false;
 
 const initialState = {
-  user: storedUser,
+  user: storedUser ? JSON.parse(storedUser) : null,
   status: 'idle',
   error: null,
   isAuthenticated: storedIsAuthenticated,
@@ -151,5 +151,5 @@ const userSlice = createSlice({
   },
 });
 
-export const selectUserId = (state) => state.user.user.id;
+export const selectUserId = (state) => state.user.user?.id || null;
 export default userSlice.reducer;
