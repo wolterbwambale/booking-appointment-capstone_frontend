@@ -5,6 +5,8 @@ import { Navigate } from 'react-router-dom';
 import { fetchAllReservations } from '../../features/reservation/reservationSlice';
 import {
   fetchDoctorById,
+  deleteDoctorById,
+  updateDoctor,
   selectDoctors,
 } from '../../features/featureSlice/featureSlice';
 import './Dashboard.css';
@@ -20,6 +22,18 @@ function Dashboard() {
     dispatch(fetchAllReservations());
     dispatch(fetchDoctorById());
   }, [dispatch]);
+
+  const handleDelete = (doctorId) => {
+    dispatch(deleteDoctorById(doctorId));
+  };
+
+  const handleUpdate = (doctor) => {
+    if (doctor && doctor.id) {
+      dispatch(updateDoctor(doctor)); // Dispatch an update action for the selected doctor
+    } else {
+      console.error('Doctor ID is missing or invalid');
+    }
+  };
 
   if (!isAdmin) {
     // Redirect to login page for users who are not admins
@@ -66,6 +80,7 @@ function Dashboard() {
               <th>Name</th>
               <th>Specialization</th>
               <th>Year of Experience</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -74,12 +89,27 @@ function Dashboard() {
                 <td>{doctor.name}</td>
                 <td>{doctor.specialization}</td>
                 <td>{doctor.years_of_experience}</td>
+                <td>
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => handleUpdate(doctor.id)}
+                  >
+                    Update
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(doctor.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </section>
-
       {/* Add other components or sections based on user roles */}
     </div>
   );
