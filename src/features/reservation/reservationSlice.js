@@ -105,7 +105,14 @@ const reservationSlice = createSlice({
       .addCase(deleteReservation.fulfilled, (state, action) => {
         state.isLoading = false;
         const deletedReservationId = action.payload;
+
+        // Remove the deleted reservation from myReservations
         state.myReservations = state.myReservations.filter(
+          (reservation) => reservation.id !== deletedReservationId,
+        );
+
+        // Remove the deleted reservation from reservations
+        state.reservations = state.reservations.filter(
           (reservation) => reservation.id !== deletedReservationId,
         );
       })

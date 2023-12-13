@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate, Link } from 'react-router-dom';
-import { fetchAllReservations } from '../../features/reservation/reservationSlice';
+import { fetchAllReservations, deleteReservation as deleteReservationAction } from '../../features/reservation/reservationSlice';
 import {
   fetchDoctorById,
   deleteDoctorById,
@@ -22,8 +22,9 @@ function Dashboard() {
     dispatch(fetchDoctorById());
   }, [dispatch]);
 
-  const handleDelete = (doctorId) => {
-    dispatch(deleteDoctorById(doctorId));
+  const handleDelete = (reservationId) => {
+    // Dispatch the deleteReservation action with the reservationId
+    dispatch(deleteReservationAction(reservationId));
   };
 
   if (!isAdmin) {
@@ -32,8 +33,9 @@ function Dashboard() {
   }
 
   return (
-    <div className="dashboard">
-      <h1>Welcome to the Dashboard</h1>
+    <div className="dashboard-overlay">
+      <div className="dashboard">
+        <h1>Welcome to the Dashboard</h1>
 
       <section>
         <h2>Manage Reservations</h2>
@@ -55,10 +57,28 @@ function Dashboard() {
                 <td>{reservation.doctor.name}</td>
                 <td>{reservation.doctor.specialization}</td>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+            </thead>
+            <tbody>
+              {reservations.map((reservation) => (
+                <tr key={reservation.id}>
+                  <td>{reservation.date}</td>
+                  <td>{reservation.user.name}</td>
+                  <td>{reservation.doctor.name}</td>
+                  <td>{reservation.doctor.specialization}</td>
+                  <td>
+                    <button
+                      className="delete-btn"
+                      type="button"
+                      onClick={() => handleDelete(reservation.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
 
       <section>
         <h2>Manage Doctors</h2>

@@ -1,6 +1,16 @@
 /* Dashboard.css */
+.dashboard-overlay {
+  background-image: url('../../assets/dashboard.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+}
+
 .dashboard {
   margin: 0 auto;
+  width: 60%;
+  backdrop-filter: blur(50px);
 }
 
 .dashboard-table {
@@ -38,4 +48,31 @@
 ul li {
   text-decoration: none;
   list-style: none;
+@media only screen and (max-width: 375px) {
+  .dashboard {
+    margin: 0;
+    width: 100vw;
+    height: auto;
+    margin-bottom: 6rem;
+  }
+
+  .dashboard-table > * {
+    font-size: 75%;
+  }
+
+  .dashboard > h1 {
+    font-size: 1.5rem;
+    margin-top: 5rem;
+    padding: 0.2rem;
+    color: #86b523;
+    text-shadow: 2px 2px 4px black;
+  }
+
+  .dashboard > section {
+    padding: 1rem;
+  }
+
+  section > h2 {
+    text-shadow: 1px 1px 4px rgb(242, 237, 237);
+  }
 }
