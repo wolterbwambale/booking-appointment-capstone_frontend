@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import {
   fetchDoctorById,
   selectDoctors,
-} from '../../featureSlice/featureSlice';
+} from '../../features/featureSlice/featureSlice';
 import './Feature.css';
 
 function Feature({ doctorId }) {
