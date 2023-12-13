@@ -22,7 +22,7 @@ h1 {
 
 .doctor-info {
   padding: 1rem;
-    width: 22rem;
+  width: 22rem;
 }
 
 .doctor-info > img {
@@ -81,10 +81,6 @@ h1 {
 }
 
 @media only screen and (max-width: 375px) {
-  .doctor-info > img {
-    width: 70%;
-  }
-
   .read-more,
   .name,
   .exp,
@@ -92,42 +88,26 @@ h1 {
     font-size: 70%;
   }
 
-        .doctors-component-div {
-          padding: 0;
-        }
-  .doctor-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .doctors-component-div {
+    padding: 0;
   }
 
   .read-more {
     width: 100%;
   }
-                .main-div {
-                  margin: 0;
-                }
+
+  .main-div {
+    margin: 0;
+  }
 
   .doctor-info > img {
     width: 70%;
   }
 
-  .read-more,
-  .name,
-  .exp,
-  .speci {
-    font-size: 70%;
-  }
-
   .doctor-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-
-  .read-more {
-    width: 100%;
   }
 }
