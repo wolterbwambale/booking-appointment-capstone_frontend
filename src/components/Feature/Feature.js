@@ -39,7 +39,7 @@ function Feature({ doctorId }) {
           {doctors.map((doctor) => (
             <div key={doctor.id} className="individual-doc">
               <div className="doctor-info">
-                <img src={doctor.img} alt={`Dr. ${doctor.name}`} />
+                <img src={doctor.image_urls} alt={`Dr. ${doctor.name}`} />
                 <div className="name">{doctor.name}</div>
                 <div className="speci">{doctor.specialization}</div>
                 <div className="exp">{`Experience: ${doctor.years_of_experience}`}</div>
