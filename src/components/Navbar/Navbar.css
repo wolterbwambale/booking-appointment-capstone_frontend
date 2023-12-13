@@ -10,6 +10,7 @@
   margin-left: -10px;
   border-right: #ccc 1px solid;
   padding: 2em;
+  z-index: 1000;
 }
 
 .left {
@@ -185,6 +186,7 @@ button:active {
     backdrop-filter: blur(10px);
   }
 
+  .pop-up > ul > li > button,
   .pop-up > ul > li > a > button,
   .pop-up > ul > li > a {
     text-decoration: none;

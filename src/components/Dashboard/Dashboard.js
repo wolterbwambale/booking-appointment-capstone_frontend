@@ -32,65 +32,66 @@ function Dashboard() {
   }
 
   return (
-    <div className="dashboard">
-      <h1>Welcome to the Dashboard</h1>
+    <div className="dashboard-overlay">
+      <div className="dashboard">
+        <h1>Welcome to the Dashboard</h1>
 
-      <section>
-        <h2>Manage Reservations</h2>
-        <table className="dashboard-table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Client Name</th>
-              <th>Doctor Name</th>
-              <th>Specialization</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {reservations.map((reservation) => (
-              <tr key={reservation.id}>
-                <td>{reservation.date}</td>
-                <td>{reservation.user.name}</td>
-                <td>{reservation.doctor.name}</td>
-                <td>{reservation.doctor.specialization}</td>
-                <td>
-                  <button
-                    className="delete-btn"
-                    type="button"
-                    onClick={() => handleDelete(reservation.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
+        <section>
+          <h2>Manage Reservations</h2>
+          <table className="dashboard-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Client Name</th>
+                <th>Doctor Name</th>
+                <th>Specialization</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+            </thead>
+            <tbody>
+              {reservations.map((reservation) => (
+                <tr key={reservation.id}>
+                  <td>{reservation.date}</td>
+                  <td>{reservation.user.name}</td>
+                  <td>{reservation.doctor.name}</td>
+                  <td>{reservation.doctor.specialization}</td>
+                  <td>
+                    <button
+                      className="delete-btn"
+                      type="button"
+                      onClick={() => handleDelete(reservation.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
 
-      <section>
-        <h2>Manage Doctors</h2>
-        <table className="dashboard-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Specialization</th>
-              <th>Year of Experience</th>
-            </tr>
-          </thead>
-          <tbody>
-            {doctors.map((doctor) => (
-              <tr key={doctor.id}>
-                <td>{doctor.name}</td>
-                <td>{doctor.specialization}</td>
-                <td>{doctor.years_of_experience}</td>
+        <section>
+          <h2>Manage Doctors</h2>
+          <table className="dashboard-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Specialization</th>
+                <th>Year of Experience</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
-
+            </thead>
+            <tbody>
+              {doctors.map((doctor) => (
+                <tr key={doctor.id}>
+                  <td>{doctor.name}</td>
+                  <td>{doctor.specialization}</td>
+                  <td>{doctor.years_of_experience}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      </div>
     </div>
   );
 }
