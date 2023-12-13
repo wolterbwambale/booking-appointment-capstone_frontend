@@ -43,7 +43,12 @@ function DoctorInfo() {
     <div className="main">
       <div className="doc-info">
         <div className="picture">
-          <img className="doc-img" src={doctor.img} alt={`Dr. ${doctor.name}`} />
+          <img
+            src={doctor.image_urls}
+            key={doctor.id}
+            className="doc-img"
+            alt={`Dr. ${doctor.name}`}
+          />
         </div>
         <div className="details">
           <div className="name">

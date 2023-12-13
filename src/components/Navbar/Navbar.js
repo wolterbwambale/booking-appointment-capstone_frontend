@@ -133,6 +133,13 @@ function Navbar() {
                         Logout
                       </button>
                     </li>
+                    <li>
+                      <Link to="/Addform">
+                        <button type="button" className="btn btn-success">
+                          Doctor Form
+                        </button>
+                      </Link>
+                    </li>
                   </>
                 ) : (
                   // If not authenticated
@@ -144,13 +151,6 @@ function Navbar() {
                         </button>
                       </Link>
                     </li>
-                    {/* <li>
-                        <Link to="/AddDoctorForm">
-                          <button type="button" className="btn btn-success">
-                            Doctor Form
-                          </button>
-                        </Link>
-                      </li> */}
                     <li>
                       <Link to="/feature">
                         <button type="button" className="btn btn-success">
