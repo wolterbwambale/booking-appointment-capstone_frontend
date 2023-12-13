@@ -9,12 +9,26 @@ const initialState = {
   error: null,
 };
 
+export const createReservation = createAsyncThunk(
+  'reservations/createReservation',
+  async (reservationData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post('http://127.0.0.1:4000/api/v1/reservations', {
+        reservation: reservationData,
+      });
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
+
 export const fetchAllReservations = createAsyncThunk(
   'reservations/fetchAllReservations',
   async () => {
     try {
       const response = await axios.get(
-        'http://127.0.0.1:4000/api/v1/reservations/getAll',
+        'http://127.0.0.1:4000/api/v1/reservations/all',
       );
       return response.data;
     } catch (error) {
@@ -35,6 +49,18 @@ export const fetchMyReservations = createAsyncThunk(
       return response.data;
     } catch (error) {
       throw new Error('Failed to fetch user reservations');
+    }
+  },
+);
+
+export const deleteReservation = createAsyncThunk(
+  'reservations/deleteReservation',
+  async (reservationId) => {
+    try {
+      await axios.delete(`http://127.0.0.1:4000/api/v1/reservations/${reservationId}`);
+      return reservationId; // Return the deleted reservationId on success
+    } catch (error) {
+      throw new Error('Failed to delete reservation');
     }
   },
 );
@@ -66,6 +92,34 @@ const reservationSlice = createSlice({
         state.myReservations = action.payload.reservations;
       })
       .addCase(fetchMyReservations.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(deleteReservation.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(deleteReservation.fulfilled, (state, action) => {
+        state.isLoading = false;
+        // Remove the deleted reservation from the state
+        state.myReservations = state.myReservations.filter(
+          (reservation) => reservation.id !== action.payload,
+        );
+      })
+      .addCase(deleteReservation.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(createReservation.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(createReservation.fulfilled, (state, action) => {
+        state.isLoading = false;
+        // Add the newly created reservation to the state
+        state.myReservations = [...state.myReservations, action.payload];
+      })
+      .addCase(createReservation.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       });

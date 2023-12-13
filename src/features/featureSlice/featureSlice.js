@@ -41,6 +41,6 @@ const doctorsSlice = createSlice({
   },
 });
 
-export const selectDoctors = (state) => state.doctors.doctors;
+export const selectDoctors = (state) => state.doctors.doctors || [];
 
 export default doctorsSlice.reducer;
