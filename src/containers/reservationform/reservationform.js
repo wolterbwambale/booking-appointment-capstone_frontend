@@ -41,7 +41,7 @@ function ReservationForm() {
 
   return (
     <div className="Reservationform">
-      <h2>Reservation Form</h2>
+      <h2>Book An Appointment</h2>
       <form className="forma" onSubmit={handleSubmit}>
         <label>Date:</label>
         <input
