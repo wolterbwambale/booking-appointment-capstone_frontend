@@ -15,7 +15,7 @@ function MyReservations() {
 
   const handleDelete = async (reservationId) => {
     await dispatch(deleteReservation(reservationId));
-    console.log(reservationId);
+    // console.log(reservationId);
   };
 
   if (isLoading) {
