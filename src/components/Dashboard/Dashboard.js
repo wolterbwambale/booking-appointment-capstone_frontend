@@ -1,7 +1,7 @@
 // Dashboard.js
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import { fetchAllReservations } from '../../features/reservation/reservationSlice';
 import {
   fetchDoctorById,
@@ -74,6 +74,15 @@ function Dashboard() {
 
       <section>
         <h2>Manage Doctors</h2>
+        <ul>
+          <li>
+            <Link to="/AddDoctorForm">
+              <button type="button" className="btn btn-primary">
+                Doctor Form
+              </button>
+            </Link>
+          </li>
+        </ul>
         <table className="dashboard-table">
           <thead>
             <tr>
