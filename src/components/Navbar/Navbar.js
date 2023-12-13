@@ -125,7 +125,7 @@ function Navbar() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/reservation">
+                      <Link to="/Reservation">
                         <button type="button" className="btn btn-success">
                           Appointments
                         </button>

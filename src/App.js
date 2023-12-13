@@ -21,7 +21,6 @@ import AddDoctorForm from './containers/addform/AddDoctorForm';
 import './app.css';
 
 function App() {
-  const doctorId = 1;
   return (
     <div className="main-layout">
       <Provider store={store}>
@@ -30,7 +29,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/AddDoctorForm" element={<AddDoctorForm />} />
-            <Route path="/feature" element={<Feature doctorId={doctorId} />} />
+            <Route path="/feature" element={<Feature />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route element={<ProtectedRoute />}>
