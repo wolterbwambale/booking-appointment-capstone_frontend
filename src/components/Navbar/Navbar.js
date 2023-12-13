@@ -145,12 +145,12 @@ function Navbar() {
                       </Link>
                     </li>
                     {/* <li>
-                      <Link to="/AddDoctorForm">
-                        <button type="button" className="btn btn-success">
-                          Doctor Form
-                        </button>
-                      </Link>
-                    </li> */}
+                        <Link to="/AddDoctorForm">
+                          <button type="button" className="btn btn-success">
+                            Doctor Form
+                          </button>
+                        </Link>
+                      </li> */}
                     <li>
                       <Link to="/feature">
                         <button type="button" className="btn btn-success">
