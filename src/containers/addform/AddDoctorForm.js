@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { createDoctor } from '../doctorSlice';
+import { fetchDoctorById } from '../../features/featureSlice/featureSlice';
 import './Addform.css';
 
 function AddDoctorForm() {
@@ -29,7 +30,13 @@ function AddDoctorForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(createDoctor(doctorData, navigate('/')))
+    dispatch(createDoctor(doctorData))
+      .then(() => {
+        // After successful submission, fetch the updated doctor list
+        dispatch(fetchDoctorById());
+        // Navigate to the dashboard
+        navigate('/dashboard');
+      })
       .catch((error) => {
         throw new Error('Error adding doctor:', error.message);
       });

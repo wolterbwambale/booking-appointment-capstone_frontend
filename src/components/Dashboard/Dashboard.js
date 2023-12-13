@@ -1,8 +1,12 @@
 // Dashboard.js
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
-import { fetchAllReservations, deleteReservation as deleteReservationAction } from '../../features/reservation/reservationSlice';
+import { Navigate, Link } from 'react-router-dom';
+import {
+  fetchAllReservations,
+  deleteReservation as deleteReservationAction,
+}
+  from '../../features/reservation/reservationSlice';
 import {
   fetchDoctorById,
   selectDoctors,
@@ -72,12 +76,22 @@ function Dashboard() {
 
         <section>
           <h2>Manage Doctors</h2>
+          <ul>
+            <li>
+              <Link to="/AddDoctorForm">
+                <button type="button" className="btn btn-primary">
+                  Doctor Form
+                </button>
+              </Link>
+            </li>
+          </ul>
           <table className="dashboard-table">
             <thead>
               <tr>
                 <th>Name</th>
                 <th>Specialization</th>
                 <th>Year of Experience</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -86,6 +100,15 @@ function Dashboard() {
                   <td>{doctor.name}</td>
                   <td>{doctor.specialization}</td>
                   <td>{doctor.years_of_experience}</td>
+                  <td>
+                    <button
+                      type="button"
+                      className="btn btn-danger"
+                      onClick={() => handleDelete(doctor.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
