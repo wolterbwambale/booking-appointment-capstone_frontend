@@ -19,8 +19,8 @@ function SignupForm() {
     // If the user is defined, signup was successful
     if (user) {
       const userInfo = {
-        id: user.data.id,
-        name: user.data.name,
+        id: user.id,
+        name: user.name,
       };
       sessionStorage.setItem('status', 'true');
       sessionStorage.setItem('logged_user', JSON.stringify(userInfo));
