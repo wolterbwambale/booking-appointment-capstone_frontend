@@ -1,0 +1,55 @@
+/* MyReservations.css */
+.component-container {
+  width: 100%;
+  height: 100%;
+}
+
+.my_reservation {
+  min-height: 100vh;
+  margin-top: 5rem;
+}
+
+.reservation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.reservation-table th,
+.reservation-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.reservation-table th {
+  background-color: #f2f2f2;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+@media only screen and (max-width: 500px) {
+  .my_reservation {
+    min-height: 100vh;
+  }
+
+  .my_reservation > h2 {
+    margin-top: 6rem;
+    margin-left: 4%;
+  }
+
+  .reservation-table {
+    width: 90%;
+    margin: 4%;
+  }
+}
