@@ -21,31 +21,29 @@ import DoctorInfo from './components/Feature/DoctorInfo/DoctorInfo';
 import DoctorForm from './components/DoctorForm/DoctorForm';
 import './app.css';
 
-function App() {
-  return (
-    <div className="main-layout">
-      <Provider store={store}>
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/reservation-form/:doctorName" element={<ReservationForm />} />
-            <Route path="/AddDoctorForm" element={<DoctorForm />} />
-            <Route path="/feature" element={<Feature />} />
-            <Route path="/login" element={<LoginForm />} />
-            <Route path="/signup" element={<SignupForm />} />
-            <Route element={<ProtectedRoute />}>
-              <Route path="/my-reservation" element={<MyReservations />} />
-            </Route>
-            <Route path="*" element={<Navigate to="/" />} />
-            <Route path="/doctor_info/:id" element={<DoctorInfo />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Routes>
-          <Footer />
-        </Router>
-      </Provider>
-    </div>
-  );
-}
+const App = () => (
+  <div className="main-layout">
+    <Provider store={store}>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/reservation-form/:doctorName" element={<ReservationForm />} />
+          <Route path="/AddDoctorForm" element={<DoctorForm />} />
+          <Route path="/feature" element={<Feature />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignupForm />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/my-reservation" element={<MyReservations />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/doctor_info/:id" element={<DoctorInfo />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </Provider>
+  </div>
+);
 
 export default App;

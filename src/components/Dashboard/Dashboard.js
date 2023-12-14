@@ -12,7 +12,7 @@ import {
 } from '../../features/featureSlice/featureSlice';
 import './Dashboard.css';
 
-function Dashboard() {
+const Dashboard = () => {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations.reservations);
   const doctors = useSelector(selectDoctors);
@@ -121,6 +121,6 @@ function Dashboard() {
       </div>
     </div>
   );
-}
+};
 
 export default Dashboard;

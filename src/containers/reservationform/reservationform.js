@@ -8,7 +8,7 @@ import { selectUserId } from '../../features/user/userSlice';
 
 import './reservationform.css';
 
-function ReservationForm() {
+const ReservationForm = () => {
   const dispatch = useDispatch();
   const { doctorName } = useParams();
   const location = useLocation();
@@ -83,6 +83,6 @@ function ReservationForm() {
       </form>
     </div>
   );
-}
+};
 
 export default ReservationForm;

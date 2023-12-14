@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { signup } from '../../features/user/userSlice';
 import './form.css'; // Importing the shared CSS file for styling
 
-function SignupForm() {
+const SignupForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -87,6 +87,6 @@ function SignupForm() {
       )}
     </div>
   );
-}
+};
 
 export default SignupForm;

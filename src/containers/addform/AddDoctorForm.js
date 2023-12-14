@@ -5,7 +5,7 @@ import { createDoctor } from '../doctorSlice';
 import { fetchDoctorById } from '../../features/featureSlice/featureSlice';
 import './Addform.css';
 
-function AddDoctorForm() {
+const AddDoctorForm = () => {
   const imagesRef = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -130,6 +130,6 @@ function AddDoctorForm() {
       </form>
     </div>
   );
-}
+};
 
 export default AddDoctorForm;
