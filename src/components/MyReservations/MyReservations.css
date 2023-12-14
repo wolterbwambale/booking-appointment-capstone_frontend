@@ -4,6 +4,11 @@
   height: 100%;
 }
 
+.my_reservation {
+  min-height: 100vh;
+  margin-top: 5rem;
+}
+
 .reservation-table {
   width: 100%;
   border-collapse: collapse;
