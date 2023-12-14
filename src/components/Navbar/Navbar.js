@@ -61,16 +61,31 @@ function Navbar() {
                   <li>
                     <Link to="/feature">Doctors</Link>
                   </li>
-                  <li>
-                    <Link to="/my-reservation">My Reservations</Link>
-                  </li>
                   {isAuthenticated ? (
                     // If authenticated
-                    <li>
-                      <button type="button" onClick={handleLogout}>
-                        Logout
-                      </button>
-                    </li>
+                    <>
+                      {!isAdmin && (
+                        // If authenticated and not admin
+                        <li>
+                          <Link to="/my-reservation">My Reservations</Link>
+                        </li>
+                      )}
+                      {isAdmin && (
+                        // If authenticated and admin
+                        <li>
+                          <Link to="/dashboard">
+                            <button type="button" className="btn btn-success">
+                              Dashboard
+                            </button>
+                          </Link>
+                        </li>
+                      )}
+                      <li>
+                        <button type="button" onClick={handleLogout}>
+                          Logout
+                        </button>
+                      </li>
+                    </>
                   ) : (
                     // If not authenticated
                     <>
@@ -168,22 +183,13 @@ function Navbar() {
                 <ul>
                   {isAuthenticated && isAdmin ? (
                     // If authenticated, link to the dashboard
-                    <>
-                      <li>
-                        <Link to="/dashboard">
-                          <button type="button" className="btn btn-success">
-                            Dashboard
-                          </button>
-                        </Link>
-                      </li>
-                      {/* <li>
-                        <Link to="/AddDoctorForm">
-                          <button type="button" className="btn btn-success">
-                            Doctor Form
-                          </button>
-                        </Link>
-                      </li> */}
-                    </>
+                    <li>
+                      <Link to="/dashboard">
+                        <button type="button" className="btn btn-success">
+                          Dashboard
+                        </button>
+                      </Link>
+                    </li>
                   ) : null}
                 </ul>
 
