@@ -61,7 +61,7 @@ button:hover {
   background-color: #45a049;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 500px) {
   .Reservationform {
     background-image: url('../../assets/mobile.jpg');
     background-position: center;

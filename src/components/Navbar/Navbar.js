@@ -37,7 +37,7 @@ function Navbar() {
     };
 
     const renderNavigation = () => {
-      if (windowWidth <= 375) {
+      if (windowWidth <= 500) {
         return (
           <div className="nav-container">
             <div className="logo">
