@@ -56,7 +56,6 @@ function DoctorInfo() {
               {doctor.name}
               {' '}
               <br />
-              {/* Star icons */}
             </div>
             <div className="speci">{doctor.specialization}</div>
             <div className="exp">{`Experience: ${doctor.years_of_experience} years`}</div>
