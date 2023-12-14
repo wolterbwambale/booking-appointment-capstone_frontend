@@ -187,7 +187,7 @@ const Navbar = () => {
 
                 <ul>
                   {isAuthenticated && isAdmin ? (
-                    // If authenticated, link to the dashboard
+                  // If authenticated, link to the dashboard
                     <li>
                       <Link to="/dashboard">
                         <button type="button" className="btn btn-success">
@@ -197,7 +197,6 @@ const Navbar = () => {
                     </li>
                   ) : null}
                 </ul>
-
                 <li>
                   {isAuthenticated && !isAdmin ? (
                     <Link to="/my-reservation">
