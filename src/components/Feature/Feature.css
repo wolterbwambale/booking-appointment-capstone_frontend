@@ -4,6 +4,17 @@
   margin-left: 12rem;
 }
 
+.doc-overlay {
+  background-image: url('../../assets/doctorsBackground.jpg');
+  background-size: cover;
+}
+
+#feature-container {
+  width: 100vw;
+  min-height: 100vh;
+  backdrop-filter: blur(3px);
+}
+
 .doctors-component-div {
   display: flex;
   flex-wrap: wrap;

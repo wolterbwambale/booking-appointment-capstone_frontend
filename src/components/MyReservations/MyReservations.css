@@ -4,6 +4,11 @@
   height: 100%;
 }
 
+.my_reservation {
+  min-height: 100vh;
+  margin-top: 5rem;
+}
+
 .reservation-table {
   width: 100%;
   border-collapse: collapse;
@@ -31,4 +36,20 @@
 
 .delete-btn:hover {
   background-color: #c82333;
+}
+
+@media only screen and (max-width: 375px) {
+  .my_reservation {
+    min-height: 100vh;
+  }
+
+  .my_reservation > h2 {
+    margin-top: 6rem;
+    margin-left: 4%;
+  }
+
+  .reservation-table {
+    width: 90%;
+    margin: 4%;
+  }
 }

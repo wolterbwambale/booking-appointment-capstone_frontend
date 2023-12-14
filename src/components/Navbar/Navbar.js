@@ -40,7 +40,12 @@ function Navbar() {
       if (windowWidth <= 375) {
         return (
           <div className="nav-container">
-            <span className="left">Logo</span>
+            <div className="logo">
+              <span className="logo-text">
+                Health
+                <span>Clinic</span>
+              </span>
+            </div>
             <button
               type="button"
               onClick={toggleLinks}
@@ -61,16 +66,31 @@ function Navbar() {
                   <li>
                     <Link to="/feature">Doctors</Link>
                   </li>
-                  <li>
-                    <Link to="/my-reservation">My Reservations</Link>
-                  </li>
                   {isAuthenticated ? (
                     // If authenticated
-                    <li>
-                      <button type="button" onClick={handleLogout}>
-                        Logout
-                      </button>
-                    </li>
+                    <>
+                      {!isAdmin && (
+                        // If authenticated and not admin
+                        <li>
+                          <Link to="/my-reservation">My Reservations</Link>
+                        </li>
+                      )}
+                      {isAdmin && (
+                        // If authenticated and admin
+                        <li>
+                          <Link to="/dashboard">
+                            <button type="button" className="btn btn-success">
+                              Dashboard
+                            </button>
+                          </Link>
+                        </li>
+                      )}
+                      <li>
+                        <button type="button" onClick={handleLogout}>
+                          Logout
+                        </button>
+                      </li>
+                    </>
                   ) : (
                     // If not authenticated
                     <>
