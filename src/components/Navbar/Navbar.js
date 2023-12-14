@@ -5,7 +5,7 @@ import { logout } from '../../features/user/userSlice';
 import './Navbar.css';
 import Footer from '../Footer/Footer';
 
-const Navbar = () => {
+function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
@@ -219,6 +219,6 @@ const Navbar = () => {
   };
 
   return <LinksComponent />;
-};
+}
 
 export default Navbar;

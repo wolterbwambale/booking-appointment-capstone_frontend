@@ -1,8 +1,8 @@
 import React from 'react';
 import AddDoctorForm from '../../containers/addform/AddDoctorForm';
 
-const DoctorForm = () => (
-  <AddDoctorForm />
-);
+function DoctorForm() {
+  return <AddDoctorForm />;
+}
 
 export default DoctorForm;

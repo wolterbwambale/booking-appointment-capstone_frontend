@@ -7,7 +7,7 @@ import {
 } from '../../features/reservation/reservationSlice';
 import './MyReservations.css';
 
-const MyReservations = () => {
+function MyReservations() {
   const dispatch = useDispatch();
   const myReservations = useSelector((state) => state.reservations.myReservations);
   const isLoading = useSelector((state) => state.reservations.isLoading);
@@ -63,6 +63,6 @@ const MyReservations = () => {
       </div>
     </div>
   );
-};
+}
 
 export default MyReservations;
