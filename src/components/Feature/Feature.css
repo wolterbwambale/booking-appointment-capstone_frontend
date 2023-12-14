@@ -96,7 +96,7 @@ h1 {
   font-weight: bold;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 500px) {
   .read-more,
   .name,
   .exp,

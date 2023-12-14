@@ -57,7 +57,7 @@ ul li {
   list-style: none;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 500px) {
   .dashboard {
     margin: 0;
     width: 100vw;

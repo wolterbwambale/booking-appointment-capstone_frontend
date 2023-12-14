@@ -55,7 +55,7 @@
   text-align: center;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 500px) {
   .form-container {
     /* margin-top: 10rem; */
     margin: 4em auto;

@@ -38,7 +38,7 @@
   background-color: #c82333;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 500px) {
   .my_reservation {
     min-height: 100vh;
   }
