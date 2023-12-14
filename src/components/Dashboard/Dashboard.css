@@ -11,6 +11,8 @@
   margin: 0 auto;
   width: 60%;
   backdrop-filter: blur(50px);
+  height: auto;
+  margin-bottom: 10rem;
 }
 
 .dashboard-table {

@@ -165,7 +165,7 @@ function Navbar() {
                   </>
                 )}
 
-                <ul>
+                {/* <ul>
                   {isAuthenticated && isAdmin ? (
                     // If authenticated, link to the dashboard
                     <>
@@ -185,7 +185,7 @@ function Navbar() {
                       </li>
                     </>
                   ) : null}
-                </ul>
+                </ul> */}
 
                 <li>
                   {isAuthenticated && !isAdmin ? (
