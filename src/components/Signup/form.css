@@ -1,0 +1,73 @@
+/* LoginForm.css or SignupForm.css */
+.form-container {
+  margin: 2em auto; /* Increased margin at the top for better spacing */
+  padding: 20px;
+  border: none; /* Removed border for a cleaner look */
+  border-radius: 8px;
+  background-color: #fff; /* Changed to pure white for a modern look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
+  font-family: 'Arial', sans-serif;
+  width: 30%;
+  height: 20%;
+}
+
+.form-container h2 {
+  color: #333;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-input {
+  width: calc(100% - 20px); /* Account for padding */
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd; /* Lighter border color for input */
+  border-radius: 4px;
+  font-size: 14px; /* Slightly smaller font size for inputs */
+}
+
+.form-button {
+  width: calc(100% - 20px); /* Account for padding */
+  padding: 10px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #97bf11; /* Assuming a color that matches the Vespa theme */
+  color: white;
+  font-size: 16px; /* Larger font size for button text */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.form-button:hover {
+  background-color: #a4cd1e;
+
+  /* A darker shade for the hover state */
+}
+
+.form-error {
+  color: #d32f2f; /* Using Material Design color for errors */
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px; /* Spacing before the error message */
+  font-size: 14px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .form-container {
+    /* margin-top: 10rem; */
+    margin: 4em auto;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family:
+      'Arial',
+      sans-serif;
+    width: 100%;
+    height: 20%;
+  }
+}

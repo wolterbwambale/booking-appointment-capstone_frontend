@@ -1,0 +1,129 @@
+.main-div {
+  display: flex;
+  justify-content: center;
+  margin-left: 12rem;
+}
+
+.doc-overlay {
+  background-image: url('../../assets/doctorsBackground.jpg');
+  background-size: cover;
+}
+
+#feature-container {
+  width: 100vw;
+  min-height: 100vh;
+  backdrop-filter: blur(3px);
+}
+
+.doctors-component-div {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 5.5rem 0 5.5rem;
+}
+
+.doctors-component-div:last-child {
+  margin-bottom: 4rem;
+}
+
+h1 {
+  font-weight: 600;
+  text-align: center;
+  margin: 2rem;
+}
+
+.doctor-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  padding: 1rem;
+  width: 22rem;
+}
+
+.doctor-info > img {
+  width: 22rem;
+  height: auto;
+  border-radius: 20px;
+  margin: 1rem;
+  padding: 5px;
+}
+
+.name {
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.4rem;
+  padding: 0.2rem;
+}
+
+.exp,
+.speci {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #757575;
+  padding: 0.2rem;
+  width: 10rem;
+}
+
+.read-more {
+  color: white;
+  margin: 0.2rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  box-shadow: none;
+  text-align: center;
+  background-color: #86b523;
+}
+
+#second_col {
+  margin-left: 100px;
+}
+
+.link-btn {
+  padding: 8px 16px;
+  font-size: 20px;
+  color: white;
+  background-color: #86b523;
+  text-decoration: none;
+  border-radius: 12px;
+  width: max-content;
+}
+
+#left {
+  color: #86b523;
+  transition: transform 0.3s ease-in-out;
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 500px) {
+  .read-more,
+  .name,
+  .exp,
+  .speci {
+    font-size: 70%;
+  }
+
+  .doctors-component-div {
+    padding: 0;
+  }
+
+  .read-more {
+    width: 100%;
+  }
+
+  .main-div {
+    margin: 0;
+  }
+
+  .doctor-info > img {
+    width: 70%;
+  }
+
+  .doctor-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
