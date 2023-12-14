@@ -149,6 +149,10 @@ button:active {
     align-items: center;
   }
 
+  .nav-container > .logo {
+    padding: 1rem 0 0 1rem;
+  }
+
   .left {
     width: 100%;
     margin-right: 13rem;
@@ -162,7 +166,8 @@ button:active {
     background-color: transparent;
     border: none;
     padding: 0;
-    flex: 1;
+    width: 12vw;
+    margin-right: 1.5rem;
   }
 
   .nav-container > button > img {
@@ -178,7 +183,7 @@ button:active {
   }
 
   .pop-up {
-    margin-top: 1rem;
+    margin-top: 0.2rem;
     background-color: #87b5235a;
     color: white;
     width: 100vw;

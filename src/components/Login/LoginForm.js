@@ -40,14 +40,14 @@ function LoginForm() {
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="Username"
+          placeholder="Enter your name"
         />
         <input
           className="form-input"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="Enter your password"
         />
         <button
           className="form-button"

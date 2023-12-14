@@ -7,6 +7,12 @@
   box-sizing: border-box;
 }
 
+.individual-doc-layout {
+  background-image: url('../../../assets/mobile_doc.jpg');
+  background-size: 100%;
+  background-position: center;
+}
+
 .doc-info {
   display: flex;
   justify-content: center;
@@ -31,6 +37,7 @@
 
 .details {
   height: 70%;
+  backdrop-filter: blur(10px);
 }
 
 .details > * {
@@ -91,5 +98,9 @@
 
   .picture > img {
     height: 32rem;
+  }
+
+  .individual-doc-layout {
+    background-image: none;
   }
 }
