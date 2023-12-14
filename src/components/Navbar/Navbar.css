@@ -149,6 +149,10 @@ button:active {
     align-items: center;
   }
 
+  .nav-container > .logo {
+    padding: 1rem 0 0 1rem;
+  }
+
   .left {
     width: 100%;
     margin-right: 13rem;
@@ -171,6 +175,7 @@ button:active {
     height: 2.5rem;
     width: 2.5rem;
     position: fixed;
+    margin-left: 45%;
   }
 
   .main-div {

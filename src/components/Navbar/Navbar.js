@@ -40,7 +40,12 @@ function Navbar() {
       if (windowWidth <= 375) {
         return (
           <div className="nav-container">
-            <span className="left">Logo</span>
+            <div className="logo">
+              <span className="logo-text">
+                Health
+                <span>Clinic</span>
+              </span>
+            </div>
             <button
               type="button"
               onClick={toggleLinks}
