@@ -8,7 +8,7 @@ import {
 } from '../../features/reservation/reservationSlice';
 import {
   fetchDoctorById,
-  selectDoctors,
+  selectDoctors, deleteDoctorById,
 } from '../../features/featureSlice/featureSlice';
 import './Dashboard.css';
 
@@ -27,6 +27,11 @@ function Dashboard() {
   const handleDelete = (reservationId) => {
     // Dispatch the deleteReservation action with the reservationId
     dispatch(deleteReservationAction(reservationId));
+  };
+
+  const handleDeletedoctor = (doctorId) => {
+    // Dispatch the deleteDoctorById action with the doctorId
+    dispatch(deleteDoctorById(doctorId));
   };
 
   if (!isAdmin) {
@@ -103,7 +108,7 @@ function Dashboard() {
                     <button
                       type="button"
                       className="btn btn-danger"
-                      onClick={() => handleDelete(doctor.id)}
+                      onClick={() => handleDeletedoctor(doctor.id)}
                     >
                       Delete
                     </button>
