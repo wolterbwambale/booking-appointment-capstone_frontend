@@ -197,6 +197,15 @@ function Navbar() {
                     </li>
                   ) : null}
                 </ul>
+                <li>
+                  {isAuthenticated && !isAdmin ? (
+                    <Link to="/my-reservation">
+                      <button type="button" className="btn btn-success">
+                        My Reservations
+                      </button>
+                    </Link>
+                  ) : null}
+                </li>
               </ul>
             </div>
           </div>
