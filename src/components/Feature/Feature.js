@@ -10,7 +10,7 @@ import {
 } from '../../features/featureSlice/featureSlice';
 import './Feature.css';
 
-const Feature = ({ doctorId }) => {
+function Feature({ doctorId }) {
   const dispatch = useDispatch();
   const doctors = useSelector(selectDoctors);
 
@@ -58,7 +58,7 @@ const Feature = ({ doctorId }) => {
       </section>
     </div>
   );
-};
+}
 
 Feature.propTypes = {
   doctorId: PropTypes.string.isRequired,

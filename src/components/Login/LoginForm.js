@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { login } from '../../features/user/userSlice';
 import '../Signup/form.css'; // Importing the shared CSS file for styling
 
-const LoginForm = () => {
+function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -65,6 +65,6 @@ const LoginForm = () => {
       )}
     </div>
   );
-};
+}
 
 export default LoginForm;

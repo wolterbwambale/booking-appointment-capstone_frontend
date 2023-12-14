@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { fetchDoctorById, selectDoctors } from '../../../features/featureSlice/featureSlice';
 
-const DoctorInfo = () => {
+function DoctorInfo() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -81,7 +81,7 @@ const DoctorInfo = () => {
       </div>
     </div>
   );
-};
+}
 
 DoctorInfo.propTypes = {
   doctorId: PropTypes.shape({
