@@ -185,37 +185,18 @@ function Navbar() {
                   </>
                 )}
 
-                {/* <ul>
+                <ul>
                   {isAuthenticated && isAdmin ? (
-                    // If authenticated, link to the dashboard
-                    <>
-                      <li>
-                        <Link to="/dashboard">
-                          <button type="button" className="btn btn-success">
-                            Dashboard
-                          </button>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/AddDoctorForm">
-                          <button type="button" className="btn btn-success">
-                            Doctor Form
-                          </button>
-                        </Link>
-                      </li>
-                    </>
+                  // If authenticated, link to the dashboard
+                    <li>
+                      <Link to="/dashboard">
+                        <button type="button" className="btn btn-success">
+                          Dashboard
+                        </button>
+                      </Link>
+                    </li>
                   ) : null}
-                </ul> */}
-
-                <li>
-                  {isAuthenticated && !isAdmin ? (
-                    <Link to="/my-reservation">
-                      <button type="button" className="btn btn-success">
-                        My Reservations
-                      </button>
-                    </Link>
-                  ) : null}
-                </li>
+                </ul>
               </ul>
             </div>
           </div>
