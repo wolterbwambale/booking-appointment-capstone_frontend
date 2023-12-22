@@ -69,7 +69,7 @@ button:active {
   padding: 8px 12px;
   transition: background-color 0.3s, color 0.3s;
   border: none;
-  max-width: 100%;
+  width: 100%;
 }
 
 .btn-success:hover {
