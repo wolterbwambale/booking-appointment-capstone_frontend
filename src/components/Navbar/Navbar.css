@@ -106,18 +106,12 @@ button:active {
 .nav-container button {
   width: 100%;
   background-color: transparent;
-
-  /* No background color */
   color: #000;
-
-  /* Text color */
   padding: 0.5em 1em;
   border: none;
   text-align: left;
   cursor: pointer;
   font-size: 1em;
-
-  /* Adjust font size as needed */
   transition: all 0.3s ease;
 }
 
@@ -126,12 +120,9 @@ button:active {
   transition: 0.3s;
 }
 
-/* Since you're using a button inside a Link, you might need to override link styles */
 .nav-container button:link,
 .nav-container button:visited {
   color: #000;
-
-  /* Text color */
 }
 
 @media only screen and (max-width: 500px) {
